@@ -54,10 +54,9 @@ export const navigation: Navigation = {
       href: "/services",
       children: [
         { name: "Roofing", href: "/services/roofing" },
-        { name: "Re-Roofing", href: "/services/re-roofing" },
-        { name: "Roof Repairs", href: "/services/roof-repairs" },
         { name: "Waterproofing", href: "/services/waterproofing" },
         { name: "Restoration Services", href: "/services/restoration-services" },
+        { name: "Sheet Metal", href: "/services/sheet-metal" },
       ],
     },
     { name: "Projects", href: "/projects" },
@@ -68,10 +67,9 @@ export const navigation: Navigation = {
   footer: {
     services: [
       { name: "Roofing", href: "/services/roofing" },
-      { name: "Re-Roofing", href: "/services/re-roofing" },
-      { name: "Roof Repairs", href: "/services/roof-repairs" },
       { name: "Waterproofing", href: "/services/waterproofing" },
       { name: "Restoration", href: "/services/restoration-services" },
+      { name: "Sheet Metal", href: "/services/sheet-metal" },
     ],
     company: [
       { name: "About Us", href: "/about" },

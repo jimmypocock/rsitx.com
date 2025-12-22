@@ -13,18 +13,28 @@ export interface Service {
   image: string;
 }
 
+export interface SubService {
+  id: string;
+  title: string;
+  description: string;
+}
+
 export const services: Service[] = [
   {
     id: "roofing",
     slug: "roofing",
     title: "Roofing",
-    shortDescription: "New roof installation with decades of proven expertise.",
+    shortDescription:
+      "Complete commercial roofing solutions from new construction to repairs.",
     fullDescription:
-      "RSI has decades of experience providing building owners with reliable, leak-free roofs. We work closely with architects or consultants to tailor solutions that meet your specific needs. When budget is a concern, we provide value-engineered options without compromising quality.",
+      "RSI has decades of experience providing building owners with reliable, leak-free roofs. Whether you need new construction roofing, a complete roof replacement, or expert repairs, our team delivers quality results. We work closely with architects and consultants to tailor solutions that meet your specific needs, and we take every caution to minimize disruption to your operations.",
     features: [
       "New construction roofing",
+      "Complete re-roofing and tear-off",
+      "Leak detection and repairs",
       "Commercial roof systems",
-      "Architect collaboration",
+      "Preventive maintenance programs",
+      "Storm damage assessment and repair",
       "Value-engineered solutions",
       "Quality materials from leading manufacturers",
     ],
@@ -33,47 +43,6 @@ export const services: Service[] = [
         "We are always pleased to have RSI as the winning contractor on our projects. They properly staff the project and keep it staffed until completion. RSI is also an integral part of the team when unforeseen conditions arise. Instead of standing to the side awaiting instructions, they come to the table with cost-effective quality solutions.",
     },
     image: "https://placehold.co/800x600/5c1909/ffffff?text=Roofing",
-  },
-  {
-    id: "re-roofing",
-    slug: "re-roofing",
-    title: "Re-Roofing",
-    shortDescription: "Complete roof replacement to eliminate leaks and damage.",
-    fullDescription:
-      "Mitigate water damage and leaks with a complete re-roofing solution. Our team carefully removes previous materials, repairs any underlying damage, and installs a new roof system that will protect your building for years to come. We take every caution to keep mess and distractions to a minimum during installation.",
-    features: [
-      "Complete tear-off and replacement",
-      "Damage assessment and repair",
-      "Minimal disruption to operations",
-      "Extended warranty options",
-      "Modern roofing systems",
-    ],
-    testimonial: {
-      quote:
-        "RSI's professional, responsive staff has provided me with cost-effective, dependable, high quality roofing services for many years. I will continue to recommend RSI without a moment's hesitation.",
-    },
-    image: "https://placehold.co/800x600/5c1909/ffffff?text=Re-Roofing",
-  },
-  {
-    id: "roof-repairs",
-    slug: "roof-repairs",
-    title: "Roof Repairs",
-    shortDescription:
-      "Expert leak detection and repair for challenging roofing issues.",
-    fullDescription:
-      "RSI is one of the region's premier roofing repair experts. We specialize in detecting and fixing challenging leaks that others can't solve. The South Texas climate presents unique challenges, and our team has the experience to address them all.",
-    features: [
-      "Infrared leak detection",
-      "Emergency repair services",
-      "Preventive maintenance",
-      "Storm damage repair",
-      "Climate-specific solutions",
-    ],
-    testimonial: {
-      quote:
-        "RSI has completed numerous roofing projects for our firm. Our company primarily works within the educational industry. RSI has been an extremely qualified participant in these projects. They are well aware of the needs of the educational institutions, and provide excellent communication with the staff and also security for the staff and students.",
-    },
-    image: "https://placehold.co/800x600/5c1909/ffffff?text=Roof+Repairs",
   },
   {
     id: "waterproofing",
@@ -117,9 +86,52 @@ export const services: Service[] = [
     },
     image: "https://placehold.co/800x600/5c1909/ffffff?text=Restoration",
   },
+  {
+    id: "sheet-metal",
+    slug: "sheet-metal",
+    title: "Sheet Metal",
+    shortDescription:
+      "Custom architectural sheet metal fabrication and installation.",
+    fullDescription:
+      "RSI provides expert sheet metal services for commercial buildings, from custom fabrication to professional installation. Our skilled craftsmen create precise, durable sheet metal components that protect your building and enhance its appearance. We work with a variety of metals and finishes to meet your project specifications.",
+    features: [
+      "Custom coping and flashing",
+      "Gutter and downspout systems",
+      "Metal trim and fascia",
+      "Expansion joint covers",
+      "Architectural metal panels",
+      "Standing seam metal roofing components",
+    ],
+    testimonial: {
+      quote:
+        "RSI's sheet metal work on our building was exceptional. The custom fabrication fit perfectly, and their installation team was professional and efficient. The finished product exceeded our expectations.",
+    },
+    image: "https://placehold.co/800x600/5c1909/ffffff?text=Sheet+Metal",
+  },
 ];
 
-export const restorationSubServices = [
+export const roofingSubServices: SubService[] = [
+  {
+    id: "new-construction",
+    title: "New Construction",
+    description:
+      "Expert installation of commercial roof systems for new buildings. We work with architects and consultants to deliver reliable, leak-free roofs using quality materials from leading manufacturers.",
+  },
+  {
+    id: "re-roofing",
+    title: "Re-Roofing",
+    description:
+      "Complete roof replacement to eliminate leaks and damage. Our team carefully removes previous materials, repairs underlying damage, and installs a new roof system with minimal disruption to your operations.",
+  },
+  {
+    id: "roof-repairs",
+    title: "Roof Repairs",
+    description:
+      "Expert leak detection and repair for challenging roofing issues. We specialize in solving problems others can't, using infrared detection and climate-specific solutions for South Texas buildings.",
+  },
+];
+
+export const restorationSubServices: SubService[] = [
   {
     id: "crack-sealers-caulking",
     title: "Crack Sealers & Caulking",
