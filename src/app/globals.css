@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
+  /* RSI Brand Colors */
+  --color-primary-50: #fdf2f0;
+  --color-primary-100: #f9e0db;
+  --color-primary-200: #f2c0b6;
+  --color-primary-300: #e89485;
+  --color-primary-400: #d95f4a;
+  --color-primary-500: #8b2010;
+  --color-primary-600: #5c1909;
+  --color-primary-700: #4a1407;
+  --color-primary-800: #3a1006;
+  --color-primary-900: #2d0c04;
+
+  --color-secondary-50: #fafaf7;
+  --color-secondary-100: #f5f5ef;
+  --color-secondary-200: #e6e6d7;
+  --color-secondary-300: #d4d4c0;
+  --color-secondary-400: #b8b8a0;
+  --color-secondary-500: #9a9a80;
+  --color-secondary-600: #7a7a65;
+  --color-secondary-700: #5c5c4c;
+  --color-secondary-800: #3d3d33;
+  --color-secondary-900: #1f1f1a;
+
+  /* Semantic Colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --background-alt: var(--color-secondary-100);
+  --foreground: #1a1a1a;
+  --foreground-muted: #666666;
+
+  /* Component Colors */
+  --header-bg: var(--color-primary-600);
+  --header-text: #ffffff;
+  --footer-bg: var(--color-primary-700);
+  --footer-text: #ffffff;
+  --accent: var(--color-primary-500);
+  --accent-hover: var(--color-primary-600);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+
+  --color-secondary-50: var(--color-secondary-50);
+  --color-secondary-100: var(--color-secondary-100);
+  --color-secondary-200: var(--color-secondary-200);
+  --color-secondary-300: var(--color-secondary-300);
+  --color-secondary-400: var(--color-secondary-400);
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-600: var(--color-secondary-600);
+  --color-secondary-700: var(--color-secondary-700);
+  --color-secondary-800: var(--color-secondary-800);
+  --color-secondary-900: var(--color-secondary-900);
+
+  --color-header-bg: var(--header-bg);
+  --color-header-text: var(--header-text);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-text: var(--footer-text);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary-600);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
 }
