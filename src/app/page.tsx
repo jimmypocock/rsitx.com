@@ -4,7 +4,7 @@ import { Hero, Section, SectionHeader, ServiceCard, Stats } from "@/components/u
 import { Testimonials } from "@/components/ui/Testimonials";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
-import { getFeaturedProjects } from "@/data/projects";
+import { getFeaturedProjects } from "@/data/projectCategories";
 import { getFeaturedTestimonials } from "@/data/testimonials";
 
 export default function HomePage() {
@@ -12,10 +12,10 @@ export default function HomePage() {
   const featuredTestimonials = getFeaturedTestimonials();
 
   const stats = [
-    { value: "60+", label: "Years of Experience", description: "Since 1964" },
-    { value: "1000+", label: "Projects Completed", description: "Across Southeast Texas" },
+    { value: `${company.yearsOfLegacy}+`, label: "Years of Legacy", description: "Since 1932" },
+    { value: "1000+", label: "Projects Completed", description: "Across Texas" },
+    { value: "100+", label: "Field Professionals", description: "Experienced crew" },
     { value: "7", label: "Industry Memberships", description: "Professional associations" },
-    { value: "100%", label: "Commitment", description: "To quality & safety" },
   ];
 
   return (
@@ -23,8 +23,8 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero
         title="Building Confidence"
-        subtitle={`${company.yearsInBusiness}+ Years of Excellence`}
-        description="Restoration Services, Inc. has built a legacy of reliability spanning more than 60 years of expertise in roofing, waterproofing, and building restoration services serving Southeast Texas."
+        subtitle="Nearly a Century of Texas Trades"
+        description={company.description}
         primaryAction={{ label: "Get a Quote", href: "/contact" }}
         secondaryAction={{ label: "Our Services", href: "/services" }}
         backgroundImage="https://placehold.co/1920x1080/5c1909/ffffff?text=RSI+Commercial+Roofing"
@@ -123,17 +123,17 @@ export default function HomePage() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={project.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-5">
-                <span className="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-700 capitalize">
-                  {project.category.replace("-", " ")}
-                </span>
-                <h3 className="mt-2 text-lg font-semibold text-foreground">
-                  {project.title}
+                <p className="text-sm text-primary-600 font-medium">
+                  {project.location}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold text-foreground">
+                  {project.name}
                 </h3>
                 <p className="mt-2 text-sm text-foreground-muted line-clamp-2">
                   {project.description}

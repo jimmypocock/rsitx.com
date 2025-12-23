@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
-// import { projects } from "@/data/projects";
+import { locations } from "@/data/locations";
+import { projectCategories } from "@/data/projectCategories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rsitx.com";
@@ -43,6 +44,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/recognition`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/recognition/good-brick-award-2025`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -57,15 +70,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // TODO: Uncomment when individual project pages are created
-  // Add 'slug' field to Project interface in src/data/projects.ts
-  // Create src/app/projects/[slug]/page.tsx
-  // const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
-  //   url: `${baseUrl}/projects/${project.slug}`,
-  //   lastModified: new Date(),
-  //   changeFrequency: "yearly",
-  //   priority: 0.6,
-  // }));
+  const locationPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/locations`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...locations.map((location) => ({
+      url: `${baseUrl}/locations/${location.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 
-  return [...staticPages, ...servicePages];
+  const projectCategoryPages: MetadataRoute.Sitemap = projectCategories.map(
+    (category) => ({
+      url: `${baseUrl}/projects/${category.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })
+  );
+
+  return [...staticPages, ...servicePages, ...locationPages, ...projectCategoryPages];
 }

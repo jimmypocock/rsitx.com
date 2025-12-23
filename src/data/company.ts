@@ -1,11 +1,16 @@
+import { getServiceNavItems } from "./services";
+import { getLocationNavItems } from "./locations";
+import { getProjectCategoryNavItems } from "./projectCategories";
+
 export const company = {
   name: "Restoration Services, Inc.",
   shortName: "RSI",
   tagline: "Building confidence",
   description:
-    "Restoration Services, Inc. has built a legacy of reliability spanning more than 60 years of expertise in roofing, waterproofing, and building restoration services serving Southeast Texas.",
-  founded: 1964,
-  yearsInBusiness: new Date().getFullYear() - 1964,
+    "Restoration Services, Inc. draws on nearly a century of field experience in commercial roofing, waterproofing, and building restoration services serving Texas.",
+  legacyFounded: 1932, // Hou-Tex Roofing founded
+  rsiFounded: 1982, // RSI officially formed
+  yearsOfLegacy: new Date().getFullYear() - 1932,
 
   contact: {
     phone: "(281) 890-1880",
@@ -46,34 +51,42 @@ interface Navigation {
   };
 }
 
+// Navigation is generated from data files to ensure single source of truth
 export const navigation: Navigation = {
   main: [
-    { name: "About", href: "/about" },
     {
       name: "Services",
       href: "/services",
+      children: getServiceNavItems(),
+    },
+    {
+      name: "Projects",
+      href: "/projects",
+      children: getProjectCategoryNavItems(),
+    },
+    {
+      name: "Locations",
+      href: "/locations",
+      children: getLocationNavItems(),
+    },
+    {
+      name: "Recognition",
+      href: "/recognition",
       children: [
-        { name: "Roofing", href: "/services/roofing" },
-        { name: "Waterproofing", href: "/services/waterproofing" },
-        { name: "Restoration Services", href: "/services/restoration-services" },
-        { name: "Sheet Metal", href: "/services/sheet-metal" },
+        { name: "Good Brick Award 2025", href: "/recognition/good-brick-award-2025" },
       ],
     },
-    { name: "Projects", href: "/projects" },
     { name: "Products", href: "/products" },
     { name: "Green Initiative", href: "/green-initiative" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],
   footer: {
-    services: [
-      { name: "Roofing", href: "/services/roofing" },
-      { name: "Waterproofing", href: "/services/waterproofing" },
-      { name: "Restoration", href: "/services/restoration-services" },
-      { name: "Sheet Metal", href: "/services/sheet-metal" },
-    ],
+    services: getServiceNavItems().filter((item) => item.href !== "/services"),
     company: [
       { name: "About Us", href: "/about" },
       { name: "Projects", href: "/projects" },
+      { name: "Recognition", href: "/recognition" },
       { name: "Products", href: "/products" },
       { name: "Green Initiative", href: "/green-initiative" },
       { name: "Contact", href: "/contact" },

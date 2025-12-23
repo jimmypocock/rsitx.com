@@ -161,3 +161,15 @@ export const restorationSubServices: SubService[] = [
 export function getServiceBySlug(slug: string): Service | undefined {
   return services.find((service) => service.slug === slug);
 }
+
+export function getServiceNavItems(): { name: string; href: string }[] {
+  return [
+    { name: "All Services", href: "/services" },
+    ...services
+      .map((service) => ({
+        name: service.title,
+        href: `/services/${service.slug}`,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  ];
+}
