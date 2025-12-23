@@ -37,10 +37,16 @@ export const company = {
   },
 } as const;
 
+interface NavChild {
+  name: string;
+  href: string;
+  external?: boolean;
+}
+
 interface NavItem {
   name: string;
   href: string;
-  children?: { name: string; href: string }[];
+  children?: NavChild[];
 }
 
 interface Navigation {
@@ -78,6 +84,14 @@ export const navigation: Navigation = {
     },
     { name: "Products", href: "/products" },
     { name: "Green Initiative", href: "/green-initiative" },
+    {
+      name: "Careers",
+      href: "/careers",
+      children: [
+        { name: "Employment", href: "/careers" },
+        { name: "Job Opportunities", href: "#", external: true }, // TBD - external link
+      ],
+    },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],

@@ -77,19 +77,44 @@ export function Header() {
                   {/* Dropdown Menu */}
                   {item.children && openDropdown === item.name && (
                     <div className="absolute left-0 top-full w-56 bg-white rounded-md shadow-lg ring-1 ring-black/5 py-2">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          href={child.href}
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            isActive(child.href)
-                              ? "text-primary-600 bg-primary-50"
-                              : "text-foreground hover:text-primary-600 hover:bg-primary-50"
-                          }`}
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.external ? (
+                          <a
+                            key={child.name}
+                            href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-between px-4 py-2 text-sm text-foreground hover:text-primary-600 hover:bg-primary-50 transition-colors"
+                          >
+                            {child.name}
+                            <svg
+                              className="w-3 h-3 ml-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className={`block px-4 py-2 text-sm transition-colors ${
+                              isActive(child.href)
+                                ? "text-primary-600 bg-primary-50"
+                                : "text-foreground hover:text-primary-600 hover:bg-primary-50"
+                            }`}
+                          >
+                            {child.name}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
@@ -163,20 +188,46 @@ export function Header() {
                   </Link>
                   {item.children && (
                     <div className="pl-4 space-y-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          href={child.href}
-                          className={`block px-3 py-2 rounded-md text-sm ${
-                            isActive(child.href)
-                              ? "text-primary-600 bg-primary-50"
-                              : "text-foreground-muted hover:text-primary-600 hover:bg-primary-50"
-                          }`}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
+                      {item.children.map((child) =>
+                        child.external ? (
+                          <a
+                            key={child.name}
+                            href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center px-3 py-2 rounded-md text-sm text-foreground-muted hover:text-primary-600 hover:bg-primary-50"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {child.name}
+                            <svg
+                              className="w-3 h-3 ml-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                          </a>
+                        ) : (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className={`block px-3 py-2 rounded-md text-sm ${
+                              isActive(child.href)
+                                ? "text-primary-600 bg-primary-50"
+                                : "text-foreground-muted hover:text-primary-600 hover:bg-primary-50"
+                            }`}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {child.name}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>
