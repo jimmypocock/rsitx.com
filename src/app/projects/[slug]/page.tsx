@@ -202,17 +202,6 @@ export default async function ProjectCategoryPage({
             </p>
           </Link>
           <Link
-            href="/services/restoration-services"
-            className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
-          >
-            <h3 className="font-semibold text-foreground group-hover:text-primary-600 transition-colors">
-              Restoration
-            </h3>
-            <p className="mt-2 text-sm text-foreground-muted">
-              Historic preservation and building restoration
-            </p>
-          </Link>
-          <Link
             href="/services/sheet-metal"
             className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
           >

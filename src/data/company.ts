@@ -93,7 +93,6 @@ export const navigation: Navigation = {
       ],
     },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
   ],
   footer: {
     services: getServiceNavItems().filter((item) => item.href !== "/services"),

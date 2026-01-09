@@ -39,9 +39,15 @@ const nextConfig: NextConfig = {
         destination: "/services/roofing",
         permanent: true,
       },
+      // Restoration services consolidated into main services page
       {
         source: "/services/restoration_services",
-        destination: "/services/restoration-services",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/services/restoration-services",
+        destination: "/services",
         permanent: true,
       },
     ];

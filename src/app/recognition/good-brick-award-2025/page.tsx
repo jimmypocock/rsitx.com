@@ -249,10 +249,10 @@ export default function GoodBrickAward2025Page() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
-              href="/services/restoration-services"
+              href="/services"
               className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-semibold text-primary-600 shadow-sm hover:bg-secondary-100 transition-colors"
             >
-              Our Restoration Services
+              Our Services
             </Link>
             <Link
               href="/contact"

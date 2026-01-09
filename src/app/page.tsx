@@ -27,12 +27,19 @@ export default function HomePage() {
         description={company.description}
         primaryAction={{ label: "Get a Quote", href: "/contact" }}
         secondaryAction={{ label: "Our Services", href: "/services" }}
-        backgroundImage="https://placehold.co/1920x1080/5c1909/ffffff?text=RSI+Commercial+Roofing"
+        backgroundImages={[
+          "/images/hero/hero-1.webp",
+          "/images/hero/hero-2.webp",
+          "/images/hero/hero-3.webp",
+          "/images/hero/hero-4.webp",
+          "/images/hero/hero-5.webp",
+        ]}
+        rotationInterval={7000}
       />
 
       {/* Stats Section */}
-      <Section background="primary">
-        <Stats stats={stats} variant="primary" />
+      <Section background="white">
+        <Stats stats={stats} variant="default" />
       </Section>
 
       {/* Services Section */}
@@ -57,55 +64,59 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* About/Value Proposition Section */}
-      <Section background="alt">
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 mb-2">
-              Why Choose RSI
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              More Than 60 Years of Doing It Right
-            </h2>
-            <p className="mt-6 text-lg text-foreground-muted">
-              RSI&apos;s expertise comes from six decades of serving Southeast Texas. From simple roof patches to massive, multi-story, multi-million dollar restoration or roofing projects, our experience combined with our commitment to quality means we deliver the ideal solution for your building.
-            </p>
-            <p className="mt-4 text-lg text-foreground-muted">
-              We maintain constant watch for emerging technology, including infrared leak detection and non-destructive restoration methods. Innovation keeps us ahead and keeps you covered.
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/about"
-                className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500"
-              >
-                Learn more about us
-                <svg
-                  className="ml-2 h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+      {/* About/Value Proposition Section - Full bleed image */}
+      <section className="relative bg-secondary-100">
+        <div className="lg:grid lg:grid-cols-2">
+          {/* Text Content */}
+          <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 lg:py-32 xl:pr-16">
+            <div className="lg:max-w-lg lg:ml-auto">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 mb-2">
+                Why Choose RSI
+              </p>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                More Than 60 Years of Doing It Right
+              </h2>
+              <p className="mt-6 text-lg text-foreground-muted">
+                RSI&apos;s expertise comes from six decades of serving Southeast Texas. From simple roof patches to massive, multi-story, multi-million dollar restoration or roofing projects, our experience combined with our commitment to quality means we deliver the ideal solution for your building.
+              </p>
+              <p className="mt-4 text-lg text-foreground-muted">
+                We maintain constant watch for emerging technology, including infrared leak detection and non-destructive restoration methods. Innovation keeps us ahead and keeps you covered.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
+                  Learn more about us
+                  <svg
+                    className="ml-2 h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+          {/* Full Bleed Image */}
+          <div className="relative h-64 sm:h-80 lg:h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
             <Image
-              src="https://placehold.co/800x600/5c1909/ffffff?text=RSI+Team"
-              alt="RSI team at work"
+              src="/images/RSI_Team_Hailey_Elementary_Sheet_Metal_Work.webp"
+              alt="RSI team at work on sheet metal at Hailey Elementary"
               fill
-              className="object-cover"
+              className="object-cover object-left"
             />
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Featured Projects Section */}
       <Section>

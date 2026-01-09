@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader, Section, ServiceCard } from "@/components/ui";
 import { TestimonialBlock } from "@/components/ui/Testimonials";
-import { services, getServiceBySlug, restorationSubServices, roofingSubServices } from "@/data/services";
+import { services, getServiceBySlug, roofingSubServices } from "@/data/services";
 import { company } from "@/data/company";
 
 interface ServicePageProps {
@@ -44,7 +44,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
   }
 
   const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
-  const isRestorationService = service.id === "restoration-services";
   const isRoofingService = service.id === "roofing";
 
   return (
@@ -105,30 +104,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </h3>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {roofingSubServices.map((subService) => (
-                    <div
-                      key={subService.id}
-                      className="bg-secondary-50 rounded-lg p-6"
-                    >
-                      <h4 className="text-lg font-semibold text-foreground">
-                        {subService.title}
-                      </h4>
-                      <p className="mt-2 text-sm text-foreground-muted">
-                        {subService.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Restoration Sub-Services */}
-            {isRestorationService && (
-              <div className="mt-12">
-                <h3 className="text-xl font-semibold text-foreground mb-6">
-                  Our Restoration Services Include
-                </h3>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  {restorationSubServices.map((subService) => (
                     <div
                       key={subService.id}
                       className="bg-secondary-50 rounded-lg p-6"
