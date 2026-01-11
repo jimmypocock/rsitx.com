@@ -19,7 +19,7 @@ export default function ProductsPage() {
         title="Our Products"
         subtitle="Partners & Products"
         description="Authorized installer of industry-leading products"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=RSI+Products"
+        backgroundImage="/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-2.webp"
       />
 
       {/* Intro */}

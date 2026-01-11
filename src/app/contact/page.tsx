@@ -14,7 +14,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="Get in Touch"
         description="We're here to help with your roofing and restoration needs"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=Contact+RSI"
+        backgroundImage="/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp"
       />
 
       <Section>

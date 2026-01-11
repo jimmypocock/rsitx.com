@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, Section, SectionHeader, ServiceCard } from "@/components/ui";
-import { TestimonialBlock } from "@/components/ui/Testimonials";
 import { services } from "@/data/services";
 import { company } from "@/data/company";
 
@@ -17,7 +16,7 @@ export default function ServicesPage() {
         title="Our Services"
         subtitle="What We Do"
         description="Staying ahead. Keeping you covered."
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=RSI+Services"
+        backgroundImage="/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp"
       />
 
       {/* Intro */}
@@ -35,22 +34,10 @@ export default function ServicesPage() {
           title="Comprehensive Building Solutions"
           description="From new construction to restoration, we have you covered."
         />
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
-        </div>
-      </Section>
-
-      {/* Testimonial */}
-      <Section>
-        <div className="max-w-3xl mx-auto">
-          <TestimonialBlock
-            testimonial={{
-              quote:
-                "RSI provided thorough communication and project updates and never missed a milestone during all phases of the project--I highly recommend RSI.",
-            }}
-          />
         </div>
       </Section>
 

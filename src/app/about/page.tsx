@@ -17,70 +17,70 @@ interface EraProject {
 
 const era1Projects: EraProject[] = [
   {
-    name: "Pennzoil Towers",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Pennzoil+Towers",
-    alt: "Pennzoil Towers in downtown Houston - roofing project from the 1970s",
+    name: "Historic Preservation",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
+    alt: "Historic building restoration - Buffalo Soldiers Museum",
   },
   {
-    name: "M.D. Anderson Hospital",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=MD+Anderson",
-    alt: "M.D. Anderson Cancer Center - waterproofing and roofing work",
+    name: "Masonry Restoration",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-3.webp",
+    alt: "Masonry restoration work on historic buildings",
   },
   {
-    name: "Hyatt Regency Hotel",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Hyatt+Regency",
-    alt: "Hyatt Regency Hotel Houston - commercial roofing installation",
+    name: "Waterproofing Systems",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-5.webp",
+    alt: "Professional waterproofing systems installation",
   },
   {
-    name: "The Prudential Building",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Prudential+Bldg",
-    alt: "The Prudential Building - historic roofing project",
+    name: "Building Envelope",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-7.webp",
+    alt: "Building envelope protection and restoration",
   },
 ];
 
 const era2Projects: EraProject[] = [
   {
-    name: "Texas Medical Center",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=TX+Medical+Center",
-    alt: "Texas Medical Center facilities - restoration and waterproofing",
+    name: "UT Health Houston",
+    image: "/images/projects/hospitals-medical/roofing-ut-health-houston-1.webp",
+    alt: "UT Health Houston medical campus roofing",
   },
   {
-    name: "Downtown Houston",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Downtown+Houston",
-    alt: "Downtown Houston office buildings - commercial re-roofing",
+    name: "Medical Facilities",
+    image: "/images/projects/hospitals-medical/roofing-ut-health-houston-3.webp",
+    alt: "Healthcare facility roofing and restoration",
   },
   {
-    name: "Galveston Historic District",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Galveston",
-    alt: "Galveston Historic District - historic building restoration",
+    name: "Campus Projects",
+    image: "/images/projects/hospitals-medical/roofing-ut-health-houston-5.webp",
+    alt: "University medical campus roofing installation",
   },
   {
-    name: "University of Houston",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=U+of+Houston",
-    alt: "University of Houston campus buildings - roofing and waterproofing",
+    name: "Commercial Roofing",
+    image: "/images/projects/hospitals-medical/roofing-ut-health-houston-7.webp",
+    alt: "Commercial roofing for medical buildings",
   },
 ];
 
 const era3Projects: EraProject[] = [
   {
-    name: "Rice University",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Rice+University",
-    alt: "Rice University campus - comprehensive roofing services",
-  },
-  {
-    name: "Moody Gardens",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Moody+Gardens",
-    alt: "Moody Gardens Galveston - green roofing and waterproofing",
-  },
-  {
     name: "Prairie View A&M",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Prairie+View",
-    alt: "Prairie View A&M School of Nursing - new construction roofing",
+    image: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp",
+    alt: "Prairie View A&M University Engineering Building roofing",
   },
   {
-    name: "Harris County Admin",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Harris+County",
-    alt: "Harris County Administration Building - government facility restoration",
+    name: "UH Science & Tech",
+    image: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp",
+    alt: "University of Houston Science and Technology Building",
+  },
+  {
+    name: "Industrial Projects",
+    image: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-1.webp",
+    alt: "Sanderson Farms industrial roofing project",
+  },
+  {
+    name: "Texas A&M Galveston",
+    image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp",
+    alt: "Texas A&M Galveston waterproofing project",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function AboutPage() {
         title="About Us"
         subtitle="The RSI Story"
         description="A Legacy of Texas Trades"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=About+RSI"
+        backgroundImage="/images/projects/historical/waterproofing-buffalo-soldiers-museum-2.webp"
       />
 
       {/* Timeline Container */}
@@ -186,12 +186,6 @@ export default function AboutPage() {
                 </p>
                 <p>
                   <strong className="text-foreground">Jimmy Smith</strong> was named President. He&apos;d been with Gulf Waterproofing since 1972, starting as an apprentice and working up to mechanic foreman before training as an estimator. RSI began work in March 1983.
-                </p>
-              </div>
-              {/* Inline Quote */}
-              <div className="mt-4 border-l-4 border-primary-600 pl-4 py-2 bg-white rounded-r-lg">
-                <p className="text-foreground italic text-sm">
-                  &ldquo;As the new construction market dried up, the industry shifted toward the rehabilitation of existing buildings.&rdquo;
                 </p>
               </div>
             </div>
@@ -340,21 +334,23 @@ export default function AboutPage() {
           title="Professional Memberships"
           description="Active members of leading industry associations"
         />
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-8 items-center">
           {company.memberships.map((membership) => (
             <div
-              key={membership}
-              className="flex items-center justify-center px-6 py-3 rounded-lg bg-white shadow-sm border border-secondary-200 hover:border-primary-300 hover:shadow-md transition-all"
+              key={membership.id}
+              className="flex items-center justify-center p-4 rounded-lg bg-white shadow-sm border border-secondary-200 h-20"
+              title={membership.fullName}
             >
-              <span className="text-lg font-bold text-primary-600">
-                {membership}
-              </span>
+              <Image
+                src={membership.logo}
+                alt={membership.fullName}
+                width={120}
+                height={60}
+                className="max-h-12 w-auto object-contain"
+              />
             </div>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-foreground-muted max-w-3xl mx-auto">
-          National Roofing Contractors Association • Roofing Contractors Association of Texas • Western States Roofing Contractors Association • RCI, Inc. • Associated General Contractors • American Subcontractors Association • International Concrete Repair Institute
-        </p>
       </Section>
 
       {/* CTA */}

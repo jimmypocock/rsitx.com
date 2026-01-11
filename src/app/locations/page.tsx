@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageHeader, Section, SectionHeader } from "@/components/ui";
 import { company } from "@/data/company";
-import { locations } from "@/data/locations";
+import { getLocationsWithProjects, getServiceAreas } from "@/data/locations";
 
 export const metadata: Metadata = {
   title: "Service Locations",
@@ -11,13 +11,16 @@ export const metadata: Metadata = {
 };
 
 export default function LocationsPage() {
+  const locationsWithProjects = getLocationsWithProjects();
+  const serviceAreas = getServiceAreas();
+
   return (
     <>
       <PageHeader
         title="Service Locations"
         subtitle="Serving Texas"
         description="Commercial roofing and restoration services across the Lone Star State"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=Texas+Locations"
+        backgroundImage="/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp"
       />
 
       {/* Intro */}
@@ -29,26 +32,30 @@ export default function LocationsPage() {
         </div>
       </Section>
 
-      {/* Locations Grid */}
+      {/* Featured Locations with Projects */}
       <Section background="alt">
         <SectionHeader
-          title="Our Service Areas"
-          description="Select a location to view projects in that area"
+          title="Featured Locations"
+          description="View our completed projects in these areas"
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {locations.map((location) => (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto">
+          {locationsWithProjects.map((location) => (
             <Link
               key={location.id}
               href={`/locations/${location.slug}`}
               className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
             >
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src={location.image}
-                  alt={`${location.name} service area`}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+              <div className="aspect-[4/3] relative overflow-hidden">
+                {location.image ? (
+                  <Image
+                    src={location.image}
+                    alt={`${location.name} service area`}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-primary-600" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className="text-xl font-bold text-white">
@@ -77,33 +84,55 @@ export default function LocationsPage() {
         </div>
       </Section>
 
-      {/* Map Placeholder */}
+      {/* Additional Service Areas */}
       <Section>
-        <div className="rounded-xl overflow-hidden shadow-lg">
-          <div className="aspect-[21/9] bg-secondary-200 flex items-center justify-center">
-            <div className="text-center">
-              <svg
-                className="w-16 h-16 text-secondary-400 mx-auto mb-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                />
-              </svg>
-              <p className="text-foreground-muted">
-                Interactive service area map
-              </p>
-              <p className="text-sm text-foreground-muted mt-2">
-                Covering Houston, the Gulf Coast, South Texas, and beyond
-              </p>
+        <SectionHeader
+          title="Additional Service Areas"
+          description="RSI provides commercial roofing and restoration services throughout Texas"
+        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+          {serviceAreas.map((area) => (
+            <div
+              key={area.id}
+              className="bg-secondary-50 rounded-lg p-5 border border-secondary-100"
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 text-primary-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">
+                    {area.name}
+                  </h3>
+                  <p className="text-sm text-primary-600 font-medium">
+                    {area.region}
+                  </p>
+                  <p className="mt-2 text-sm text-foreground-muted">
+                    {area.description}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </Section>
 

@@ -1,3 +1,14 @@
+export interface ProjectImage {
+  src: string;
+  alt: string;
+}
+
+export interface BeforeAfterPair {
+  before: ProjectImage;
+  after: ProjectImage;
+  title?: string;
+}
+
 export interface CategoryProject {
   id: string;
   name: string;
@@ -6,6 +17,8 @@ export interface CategoryProject {
   services: string[];
   image: string;
   year?: number;
+  images?: ProjectImage[];
+  beforeAfterPairs?: BeforeAfterPair[];
 }
 
 export interface ProjectCategory {
@@ -24,53 +37,140 @@ export const projectCategories: ProjectCategory[] = [
     name: "Colleges & Universities",
     description:
       "Commercial roofing, waterproofing, and restoration services for higher education institutions across Texas.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Colleges+%26+Universities",
+    image: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp",
     projects: [
       {
-        id: "rice-university",
-        name: "Rice University",
-        location: "Houston, TX",
+        id: "texas-am-galveston-tennis",
+        name: "Texas A&M Galveston Tennis Courts",
+        location: "Galveston, TX",
         description:
-          "Comprehensive roofing and waterproofing services for multiple campus buildings, including green roofing initiatives.",
-        services: ["Roofing", "Waterproofing", "Green Roofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Rice+University",
+          "Complete waterproofing restoration for the campus tennis court facilities.",
+        services: ["Waterproofing"],
+        image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp",
+        images: [
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp", alt: "Texas A&M Tennis Courts after restoration - view 1" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-2.webp", alt: "Texas A&M Tennis Courts after restoration - view 2" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-3.webp", alt: "Texas A&M Tennis Courts after restoration - view 3" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-4.webp", alt: "Texas A&M Tennis Courts after restoration - view 4" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-5.webp", alt: "Texas A&M Tennis Courts after restoration - view 5" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-6.webp", alt: "Texas A&M Tennis Courts after restoration - view 6" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-7.webp", alt: "Texas A&M Tennis Courts after restoration - view 7" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-8.webp", alt: "Texas A&M Tennis Courts after restoration - view 8" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-9.webp", alt: "Texas A&M Tennis Courts after restoration - view 9" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-10.webp", alt: "Texas A&M Tennis Courts after restoration - view 10" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-11.webp", alt: "Texas A&M Tennis Courts after restoration - view 11" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-12.webp", alt: "Texas A&M Tennis Courts after restoration - view 12" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-13.webp", alt: "Texas A&M Tennis Courts after restoration - view 13" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-14.webp", alt: "Texas A&M Tennis Courts after restoration - view 14" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-15.webp", alt: "Texas A&M Tennis Courts after restoration - view 15" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-16.webp", alt: "Texas A&M Tennis Courts after restoration - view 16" },
+        ],
+        beforeAfterPairs: [
+          {
+            before: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-before-1.webp", alt: "Tennis courts before restoration - view 1" },
+            after: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp", alt: "Tennis courts after restoration - view 1" },
+          },
+          {
+            before: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-before-3.webp", alt: "Tennis courts before restoration - view 2" },
+            after: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-4.webp", alt: "Tennis courts after restoration - view 2" },
+          },
+          {
+            before: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-before-4.webp", alt: "Tennis courts before restoration - view 3" },
+            after: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-3.webp", alt: "Tennis courts after restoration - view 3" },
+          },
+          {
+            before: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-before-8.webp", alt: "Tennis courts before restoration - view 4" },
+            after: { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-13.webp", alt: "Tennis courts after restoration - view 4" },
+          },
+        ],
       },
       {
-        id: "prairie-view-nursing",
-        name: "Prairie View A&M School of Nursing",
+        id: "pvamu-engineering",
+        name: "Prairie View A&M University Engineering Building",
         location: "Prairie View, TX",
         description:
-          "Full roofing system installation with sustainable materials for this state-of-the-art nursing facility.",
-        services: ["Roofing", "Green Roofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Prairie+View+A%26M",
+          "Complete roofing system installation for the university's engineering facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp",
+        images: [
+          { src: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp", alt: "PVAMU Engineering Building roofing project - view 1" },
+          { src: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-2.webp", alt: "PVAMU Engineering Building roofing project - view 2" },
+          { src: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-3.webp", alt: "PVAMU Engineering Building roofing project - view 3" },
+          { src: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-4.webp", alt: "PVAMU Engineering Building roofing project - view 4" },
+          { src: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-5.webp", alt: "PVAMU Engineering Building roofing project - view 5" },
+        ],
       },
       {
-        id: "lamar-university",
-        name: "Lamar University",
-        location: "Beaumont, TX",
-        description: "Campus-wide roofing maintenance and restoration.",
-        services: ["Roofing", "Restoration"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Lamar+University",
-        year: 2021,
-      },
-    ],
-  },
-  {
-    id: "government-buildings",
-    slug: "government-buildings",
-    name: "Government Buildings",
-    description:
-      "Trusted partner for federal, state, and municipal building projects requiring quality roofing and restoration work.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Government+Buildings",
-    projects: [
-      {
-        id: "harris-county-admin",
-        name: "Harris County Administration Building",
+        id: "san-jacinto-college",
+        name: "San Jacinto College Petrochemical Building",
         location: "Houston, TX",
         description:
-          "Re-roofing and exterior restoration for a major county government facility.",
-        services: ["Re-Roofing", "Restoration"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Government+Building",
+          "Roofing installation for the college's petrochemical training facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-san-jacinto-college-petrochemical-building.webp",
+      },
+      {
+        id: "lyondellbasell-center",
+        name: "LyondellBasell Center for Petrochemical Energy and Technology",
+        location: "Houston, TX",
+        description:
+          "Roofing project for this advanced petrochemical education and research facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-lyondellbasell-center-for-petrochemical-energy-and-technology-1.webp",
+        images: [
+          { src: "/images/projects/colleges-universities/roofing-lyondellbasell-center-for-petrochemical-energy-and-technology-1.webp", alt: "LyondellBasell Center roofing - view 1" },
+          { src: "/images/projects/colleges-universities/roofing-lyondellbasell-center-for-petrochemical-energy-and-technology-2.webp", alt: "LyondellBasell Center roofing - view 2" },
+          { src: "/images/projects/colleges-universities/roofing-lyondellbasell-center-for-petrochemical-energy-and-technology-3.webp", alt: "LyondellBasell Center roofing - view 3" },
+        ],
+      },
+      {
+        id: "uh-clear-lake",
+        name: "University of Houston Clear Lake Recreation and Wellness Center",
+        location: "Houston, TX",
+        description:
+          "Commercial roofing for the university's recreation and wellness facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-university-of-houston-clear-lake-recreation-and-wellness-center.webp",
+      },
+      {
+        id: "uh-science-tech",
+        name: "University of Houston Science and Technology Building",
+        location: "Houston, TX",
+        description:
+          "Roofing installation for the university's science and technology complex.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp",
+        images: [
+          { src: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp", alt: "UH Science & Tech Building roofing - view 1" },
+          { src: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-2.webp", alt: "UH Science & Tech Building roofing - view 2" },
+          { src: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-3.webp", alt: "UH Science & Tech Building roofing - view 3" },
+          { src: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-4.webp", alt: "UH Science & Tech Building roofing - view 4" },
+        ],
+      },
+      {
+        id: "texas-am-galveston-dorms",
+        name: "Texas A&M Galveston Dormitories",
+        location: "Galveston, TX",
+        description:
+          "Waterproofing services for student dormitory buildings at the Galveston campus.",
+        services: ["Waterproofing"],
+        image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-1.webp",
+        images: [
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-1.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 1" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-2.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 2" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-3.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 3" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-4.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 4" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-5.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 5" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-6.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 6" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-7.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 7" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-8.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 8" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-9.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 9" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-10.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 10" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-11.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 11" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-12.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 12" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-13.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 13" },
+          { src: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-14.webp", alt: "Texas A&M Galveston Dorms waterproofing - view 14" },
+        ],
       },
     ],
   },
@@ -80,44 +180,34 @@ export const projectCategories: ProjectCategory[] = [
     name: "Historical Projects",
     description:
       "Specialized historic preservation and restoration services honoring Texas's architectural heritage.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Historical+Projects",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
     projects: [
       {
         id: "buffalo-soldiers-museum",
         name: "Buffalo Soldiers National Museum",
         location: "Houston, TX",
         description:
-          "Historic preservation of the Houston Light Guard Armory, winner of the 2025 Good Brick Award.",
-        services: ["Restoration", "Masonry"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Buffalo+Soldiers",
+          "Historic preservation of the Houston Light Guard Armory (1925), winner of the 2025 Good Brick Award from Preservation Houston.",
+        services: ["Waterproofing", "Restoration"],
+        image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
         year: 2024,
-      },
-      {
-        id: "historic-downtown",
-        name: "Downtown Houston Historic Building",
-        location: "Houston, TX",
-        description:
-          "Careful restoration of a century-old commercial building, preserving architectural details while modernizing protection.",
-        services: ["Historical Restoration", "Waterproofing", "Masonry Repair"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Historic+Building",
-      },
-      {
-        id: "strand-district",
-        name: "Historic Strand District",
-        location: "Galveston, TX",
-        description: "Historic building restoration in downtown Galveston.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Strand+District",
-        year: 2020,
-      },
-      {
-        id: "beaumont-historic",
-        name: "Downtown Beaumont Historic Building",
-        location: "Beaumont, TX",
-        description: "Historic preservation and waterproofing services.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Beaumont+Historic",
-        year: 2020,
+        images: [
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp", alt: "Buffalo Soldiers Museum restoration - view 1" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-2.webp", alt: "Buffalo Soldiers Museum restoration - view 2" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-3.webp", alt: "Buffalo Soldiers Museum restoration - view 3" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-4.webp", alt: "Buffalo Soldiers Museum restoration - view 4" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-5.webp", alt: "Buffalo Soldiers Museum restoration - view 5" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-6.webp", alt: "Buffalo Soldiers Museum restoration - view 6" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-7.webp", alt: "Buffalo Soldiers Museum restoration - view 7" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-8.webp", alt: "Buffalo Soldiers Museum restoration - view 8" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-9.webp", alt: "Buffalo Soldiers Museum restoration - view 9" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-10.webp", alt: "Buffalo Soldiers Museum restoration - view 10" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-11.webp", alt: "Buffalo Soldiers Museum restoration - view 11" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-12.webp", alt: "Buffalo Soldiers Museum restoration - view 12" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-13.webp", alt: "Buffalo Soldiers Museum restoration - view 13" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-14.webp", alt: "Buffalo Soldiers Museum restoration - view 14" },
+          { src: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-15.webp", alt: "Buffalo Soldiers Museum restoration - view 15" },
+        ],
       },
     ],
   },
@@ -127,63 +217,62 @@ export const projectCategories: ProjectCategory[] = [
     name: "Hospitals & Medical Facilities",
     description:
       "Healthcare facility roofing and waterproofing with minimal disruption to critical medical operations.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Hospitals+%26+Medical",
+    image: "/images/projects/hospitals-medical/roofing-ut-health-houston-1.webp",
     projects: [
       {
-        id: "texas-medical-center",
-        name: "Texas Medical Center",
+        id: "ut-health-houston",
+        name: "UT Health Houston",
         location: "Houston, TX",
-        description: "Large-scale restoration project for medical facilities.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=TX+Medical+Center",
-        year: 2019,
-      },
-      {
-        id: "utmb-health",
-        name: "UTMB Health",
-        location: "Galveston, TX",
-        description: "Medical campus roofing and waterproofing services.",
-        services: ["Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=UTMB",
-        year: 2021,
-      },
-      {
-        id: "sa-medical-center",
-        name: "Medical Center Facility",
-        location: "San Antonio, TX",
-        description: "Commercial roofing installation for healthcare facility.",
+        description:
+          "Large-scale roofing project for this major medical campus in the Texas Medical Center.",
         services: ["Roofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=SA+Medical",
-        year: 2021,
+        image: "/images/projects/hospitals-medical/roofing-ut-health-houston-1.webp",
+        images: [
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-1.webp", alt: "UT Health Houston roofing - view 1" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-2.webp", alt: "UT Health Houston roofing - view 2" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-3.webp", alt: "UT Health Houston roofing - view 3" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-4.webp", alt: "UT Health Houston roofing - view 4" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-5.webp", alt: "UT Health Houston roofing - view 5" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-6.webp", alt: "UT Health Houston roofing - view 6" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-7.webp", alt: "UT Health Houston roofing - view 7" },
+          { src: "/images/projects/hospitals-medical/roofing-ut-health-houston-8.webp", alt: "UT Health Houston roofing - view 8" },
+        ],
+      },
+      {
+        id: "uh-fertitta-medicine",
+        name: "University of Houston Tilman J. Fertitta Family College of Medicine",
+        location: "Houston, TX",
+        description:
+          "Roofing installation for the university's new medical education facility.",
+        services: ["Roofing"],
+        image: "/images/projects/hospitals-medical/roofing-university-of-houston-tilman-j-fertitta-family-college-of-medicine.webp",
       },
     ],
   },
   {
-    id: "hotels-hospitality",
-    slug: "hotels-hospitality",
-    name: "Hotels & Hospitality",
+    id: "industrial",
+    slug: "industrial",
+    name: "Industrial",
     description:
-      "Roofing and restoration solutions for hotels, resorts, and hospitality properties across Texas.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Hotels+%26+Hospitality",
+      "Commercial roofing solutions for manufacturing facilities, processing plants, and industrial complexes.",
+    image: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-1.webp",
     projects: [
       {
-        id: "moody-gardens",
-        name: "Moody Gardens",
-        location: "Galveston, TX",
+        id: "sanderson-farms-bryan",
+        name: "Sanderson Farms Plant",
+        location: "Bryan, TX",
         description:
-          "Green roofing and waterproofing for iconic Galveston attraction.",
-        services: ["Green Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Moody+Gardens",
-        year: 2018,
-      },
-      {
-        id: "spi-resort",
-        name: "Beachfront Resort",
-        location: "South Padre Island, TX",
-        description: "Hurricane-resistant roofing system for coastal resort property.",
-        services: ["Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=SPI+Resort",
-        year: 2023,
+          "Large-scale commercial roofing project for Sanderson Farms poultry processing facility.",
+        services: ["Roofing"],
+        image: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-1.webp",
+        images: [
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-1.webp", alt: "Sanderson Farms Plant roofing - view 1" },
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-2.webp", alt: "Sanderson Farms Plant roofing - view 2" },
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-3.webp", alt: "Sanderson Farms Plant roofing - view 3" },
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-4.webp", alt: "Sanderson Farms Plant roofing - view 4" },
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-5.webp", alt: "Sanderson Farms Plant roofing - view 5" },
+          { src: "/images/projects/industrial/roofing-sanderson-farms-plant-bryan-tx-6.webp", alt: "Sanderson Farms Plant roofing - view 6" },
+        ],
       },
     ],
   },
@@ -192,54 +281,27 @@ export const projectCategories: ProjectCategory[] = [
     slug: "multi-family-residential",
     name: "Multi-Family Residential",
     description:
-      "Commercial roofing services for apartment complexes, condominiums, and multi-family housing developments.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Multi-Family+Residential",
-    projects: [],
-  },
-  {
-    id: "office-buildings",
-    slug: "office-buildings",
-    name: "Office Buildings",
-    description:
-      "Commercial office building roofing, waterproofing, and exterior restoration throughout Texas.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Office+Buildings",
+      "Commercial roofing and waterproofing services for apartment complexes, condominiums, and multi-family housing developments.",
+    image: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp",
     projects: [
       {
-        id: "downtown-office-complex",
-        name: "Downtown Office Complex",
-        location: "Houston, TX",
-        description: "Commercial re-roofing for high-rise office buildings.",
-        services: ["Roofing", "Sheet Metal"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Downtown+Houston",
-        year: 2021,
-      },
-    ],
-  },
-  {
-    id: "parking-structures",
-    slug: "parking-structures",
-    name: "Parking Structures",
-    description:
-      "Specialized waterproofing and restoration for parking garages and multi-level parking facilities.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Parking+Structures",
-    projects: [],
-  },
-  {
-    id: "religious-facilities",
-    slug: "religious-facilities",
-    name: "Religious Facilities",
-    description:
-      "Roofing and restoration services for churches, temples, mosques, and other religious buildings.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Religious+Facilities",
-    projects: [
-      {
-        id: "first-baptist-church",
-        name: "First Baptist Church",
+        id: "il-palazzo",
+        name: "Il Palazzo",
         location: "Houston, TX",
         description:
-          "Restoration and waterproofing of a historic church, including steeple and facade work.",
-        services: ["Restoration", "Waterproofing", "Caulking"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Church+Restoration",
+          "Comprehensive waterproofing services for this luxury residential property.",
+        services: ["Waterproofing"],
+        image: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp",
+        images: [
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp", alt: "Il Palazzo waterproofing - view 1" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-2.webp", alt: "Il Palazzo waterproofing - view 2" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-3.webp", alt: "Il Palazzo waterproofing - view 3" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-4.webp", alt: "Il Palazzo waterproofing - view 4" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-5.webp", alt: "Il Palazzo waterproofing - view 5" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-6.webp", alt: "Il Palazzo waterproofing - view 6" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-7.webp", alt: "Il Palazzo waterproofing - view 7" },
+          { src: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-8.webp", alt: "Il Palazzo waterproofing - view 8" },
+        ],
       },
     ],
   },
@@ -249,8 +311,82 @@ export const projectCategories: ProjectCategory[] = [
     name: "Schools (K-12)",
     description:
       "K-12 school district roofing and waterproofing with scheduling to minimize educational disruption.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Schools+K-12",
-    projects: [],
+    image: "/images/projects/schools-k12/roofing-grand-oaks-high-school-conroe-isd.webp",
+    projects: [
+      {
+        id: "9th-grade-center-spring-isd",
+        name: "9th Grade Center",
+        location: "Spring, TX",
+        description:
+          "Roofing installation for Spring ISD's 9th grade campus.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-9th-grade-center-spring-isd.webp",
+      },
+      {
+        id: "dekaney-9th-grade-center",
+        name: "Dekaney 9th Grade Center",
+        location: "Spring, TX",
+        description:
+          "Commercial roofing project for Spring ISD's Dekaney 9th grade facility.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-dekaney-9th-grade-center-spring-isd.webp",
+      },
+      {
+        id: "clear-lake-high-school",
+        name: "Clear Lake High School",
+        location: "Houston, TX",
+        description:
+          "Roofing services for Clear Creek ISD high school campus.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-clear-lake-high-school.webp",
+      },
+      {
+        id: "grand-oaks-high-school",
+        name: "Grand Oaks High School",
+        location: "Spring, TX",
+        description:
+          "Roofing installation for Conroe ISD's Grand Oaks High School.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-grand-oaks-high-school-conroe-isd.webp",
+      },
+      {
+        id: "new-caney-high-school",
+        name: "New Caney High School",
+        location: "New Caney, TX",
+        description:
+          "Commercial roofing project for New Caney ISD.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-new-caney-high-school.webp",
+      },
+      {
+        id: "hailey-elementary",
+        name: "Hailey Elementary",
+        location: "Houston, TX",
+        description:
+          "Sheet metal installation and fabrication for elementary school campus.",
+        services: ["Sheet Metal"],
+        image: "/images/projects/schools-k12/sheet-metal-hailey-elementary-1.webp",
+        images: [
+          { src: "/images/projects/schools-k12/sheet-metal-hailey-elementary-1.webp", alt: "Hailey Elementary sheet metal - view 1" },
+          { src: "/images/projects/schools-k12/sheet-metal-hailey-elementary-2.webp", alt: "Hailey Elementary sheet metal - view 2" },
+        ],
+      },
+      {
+        id: "mcadams-junior-high",
+        name: "McAdams Junior High",
+        location: "Houston, TX",
+        description:
+          "Sheet metal services for junior high school facility.",
+        services: ["Sheet Metal"],
+        image: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-1.webp",
+        images: [
+          { src: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-1.webp", alt: "McAdams Junior High sheet metal - view 1" },
+          { src: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-2.webp", alt: "McAdams Junior High sheet metal - view 2" },
+          { src: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-3.webp", alt: "McAdams Junior High sheet metal - view 3" },
+          { src: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-4.webp", alt: "McAdams Junior High sheet metal - view 4" },
+        ],
+      },
+    ],
   },
 ];
 

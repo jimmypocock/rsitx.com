@@ -111,7 +111,7 @@ export default function CareersPage() {
         title="Employment"
         subtitle="Careers at RSI"
         description="Build your career with a company that's been building confidence since 1932"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=Careers+at+RSI"
+        backgroundImage="/images/projects/schools-k12/sheet-metal-mcadams-junior-high-1.webp"
       />
 
       {/* Intro */}

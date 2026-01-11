@@ -29,7 +29,7 @@ const awards: Award[] = [
     project: "Buffalo Soldiers National Museum",
     description:
       "RSI provided restoration services for the historic Houston Light Guard Armory (1925), home of the Buffalo Soldiers National Museum, which received the prestigious Good Brick Award for excellence in historic preservation.",
-    image: "https://placehold.co/600x400/5c1909/ffffff?text=Good+Brick+Award+2025",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
     href: "/recognition/good-brick-award-2025",
   },
 ];
@@ -41,7 +41,7 @@ export default function RecognitionPage() {
         title="Recognition & Awards"
         subtitle="Excellence in Preservation"
         description="Honored for our commitment to quality craftsmanship and historic preservation"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=Recognition"
+        backgroundImage="/images/projects/historical/waterproofing-buffalo-soldiers-museum-6.webp"
       />
 
       {/* Intro Section */}
@@ -110,14 +110,21 @@ export default function RecognitionPage() {
           <p className="mt-4 text-foreground-muted">
             RSI maintains active memberships in leading industry associations, reflecting our commitment to professional standards and continuing education.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-8 items-center">
             {company.memberships.map((membership) => (
-              <span
-                key={membership}
-                className="px-4 py-2 rounded-lg bg-secondary-100 text-primary-600 font-semibold"
+              <div
+                key={membership.id}
+                className="flex items-center justify-center p-4 rounded-lg bg-white shadow-sm border border-secondary-200 h-20"
+                title={membership.fullName}
               >
-                {membership}
-              </span>
+                <Image
+                  src={membership.logo}
+                  alt={membership.fullName}
+                  width={120}
+                  height={60}
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
           <p className="mt-8">

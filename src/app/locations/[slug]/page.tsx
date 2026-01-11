@@ -36,23 +36,27 @@ export default async function LocationPage({ params }: LocationPageProps) {
     notFound();
   }
 
-  // Get other locations for the "Other Locations" section
-  const otherLocations = locations.filter((l) => l.id !== location.id).slice(0, 4);
+  // Get other locations for the "Other Locations" section (only those with images)
+  const otherLocations = locations
+    .filter((l) => l.id !== location.id && l.image)
+    .slice(0, 4);
 
   return (
     <>
       {/* Hero */}
-      <div className="relative bg-primary-600 text-white">
-        <div className="absolute inset-0">
-          <Image
-            src={location.image}
-            alt={`${location.name} skyline`}
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="relative bg-primary-600 text-white pt-28 md:pt-32">
+        {location.image && (
+          <div className="absolute inset-0">
+            <Image
+              src={location.image}
+              alt={`${location.name} skyline`}
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+          </div>
+        )}
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <Link
             href="/locations"
             className="inline-flex items-center text-primary-200 hover:text-white mb-6 transition-colors"
@@ -202,14 +206,16 @@ export default async function LocationPage({ params }: LocationPageProps) {
               href={`/locations/${otherLocation.slug}`}
               className="group flex items-center gap-4 bg-secondary-50 hover:bg-primary-600 rounded-lg p-4 transition-colors"
             >
-              <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
-                <Image
-                  src={otherLocation.image}
-                  alt={otherLocation.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              {otherLocation.image && (
+                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 relative">
+                  <Image
+                    src={otherLocation.image}
+                    alt={otherLocation.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
               <div>
                 <h3 className="font-semibold text-foreground group-hover:text-white transition-colors">
                   {otherLocation.name}

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHeader, Section, SectionHeader } from "@/components/ui";
-import { TestimonialBlock } from "@/components/ui/Testimonials";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -10,23 +9,6 @@ export const metadata: Metadata = {
   description: `${company.name} is committed to environmental sustainability through green roofing solutions and eco-friendly practices.`,
 };
 
-const greenProjects = [
-  {
-    name: "Rice University",
-    description: "Comprehensive green roofing installation across multiple campus buildings.",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Rice+University",
-  },
-  {
-    name: "Moody Gardens",
-    description: "Sustainable roofing solutions for this iconic Galveston destination.",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Moody+Gardens",
-  },
-  {
-    name: "Prairie View A&M School of Nursing",
-    description: "LEED-compliant roofing for state-of-the-art healthcare education facility.",
-    image: "https://placehold.co/400x300/5c1909/ffffff?text=Prairie+View",
-  },
-];
 
 export default function GreenInitiativePage() {
   return (
@@ -35,7 +17,7 @@ export default function GreenInitiativePage() {
         title="Green Initiative"
         subtitle="Sustainability"
         description="Your building isn't the only thing we're restoring"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=RSI+Green+Initiative"
+        backgroundImage="/images/projects/colleges-universities/roofing-pvamu-engineering-building-3.webp"
       />
 
       {/* Intro */}
@@ -157,8 +139,8 @@ export default function GreenInitiativePage() {
           </div>
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="https://placehold.co/800x600/5c1909/ffffff?text=Green+Roofing"
-              alt="Green roofing installation"
+              src="/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-3.webp"
+              alt="Commercial roofing installation at University of Houston"
               fill
               className="object-cover"
             />
@@ -166,50 +148,6 @@ export default function GreenInitiativePage() {
         </div>
       </Section>
 
-      {/* Green Projects */}
-      <Section>
-        <SectionHeader
-          title="Featured Green Projects"
-          description="Examples of our sustainable roofing work"
-        />
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {greenProjects.map((project) => (
-            <article
-              key={project.name}
-              className="group overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {project.name}
-                </h3>
-                <p className="mt-2 text-sm text-foreground-muted">
-                  {project.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* Testimonial */}
-      <Section background="alt">
-        <div className="max-w-3xl mx-auto">
-          <TestimonialBlock
-            testimonial={{
-              quote:
-                "Our architecture firm specializes in green housing. RSI was knowledgeable about the latest in green roofing materials and they ensured the roof was installed perfectly and met all current code requirements. I look forward to working with them on our next project.",
-            }}
-          />
-        </div>
-      </Section>
 
       {/* Benefits of Green Roofing */}
       <Section>

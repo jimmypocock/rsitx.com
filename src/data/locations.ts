@@ -13,7 +13,7 @@ export interface Location {
   name: string;
   region: string;
   description: string;
-  image: string;
+  image?: string;
   mapUrl?: string;
   projects: LocationProject[];
 }
@@ -26,39 +26,136 @@ export const locations: Location[] = [
     region: "Greater Houston Area",
     description:
       "Our headquarters and primary service area. RSI has been serving the Houston metropolitan area since 1982, with roots in Houston's construction industry dating back to 1932.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Houston",
+    image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
     projects: [
       {
-        id: "houston-1",
-        name: "Rice University Campus",
-        description: "Comprehensive roofing and waterproofing services for multiple campus buildings.",
-        services: ["Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Rice+University",
-        year: 2020,
-      },
-      {
-        id: "houston-2",
-        name: "Texas Medical Center",
-        description: "Large-scale restoration project for medical facilities.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=TX+Medical+Center",
-        year: 2019,
-      },
-      {
-        id: "houston-3",
-        name: "Buffalo Soldiers Museum",
-        description: "Historic preservation of the Houston Light Guard Armory.",
-        services: ["Restoration", "Masonry"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Buffalo+Soldiers",
+        id: "buffalo-soldiers-museum",
+        name: "Buffalo Soldiers National Museum",
+        description:
+          "Historic preservation of the Houston Light Guard Armory, winner of the 2025 Good Brick Award.",
+        services: ["Waterproofing", "Restoration"],
+        image: "/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp",
         year: 2024,
       },
       {
-        id: "houston-4",
-        name: "Downtown Office Complex",
-        description: "Commercial re-roofing for high-rise office buildings.",
-        services: ["Roofing", "Sheet Metal"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Downtown+Houston",
-        year: 2021,
+        id: "ut-health-houston",
+        name: "UT Health Houston",
+        description:
+          "Large-scale roofing project for this major medical campus in the Texas Medical Center.",
+        services: ["Roofing"],
+        image: "/images/projects/hospitals-medical/roofing-ut-health-houston-1.webp",
+      },
+      {
+        id: "uh-fertitta-medicine",
+        name: "University of Houston Tilman J. Fertitta Family College of Medicine",
+        description:
+          "Roofing installation for the university's new medical education facility.",
+        services: ["Roofing"],
+        image: "/images/projects/hospitals-medical/roofing-university-of-houston-tilman-j-fertitta-family-college-of-medicine.webp",
+      },
+      {
+        id: "lyondellbasell-center",
+        name: "LyondellBasell Center for Petrochemical Energy and Technology",
+        description:
+          "Roofing project for this advanced petrochemical education and research facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-lyondellbasell-center-for-petrochemical-energy-and-technology-1.webp",
+      },
+      {
+        id: "san-jacinto-college",
+        name: "San Jacinto College Petrochemical Building",
+        description:
+          "Roofing installation for the college's petrochemical training facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-san-jacinto-college-petrochemical-building.webp",
+      },
+      {
+        id: "uh-clear-lake",
+        name: "University of Houston Clear Lake Recreation and Wellness Center",
+        description:
+          "Commercial roofing for the university's recreation and wellness facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-university-of-houston-clear-lake-recreation-and-wellness-center.webp",
+      },
+      {
+        id: "uh-science-tech",
+        name: "University of Houston Science and Technology Building",
+        description:
+          "Roofing installation for the university's science and technology complex.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp",
+      },
+      {
+        id: "clear-lake-high-school",
+        name: "Clear Lake High School",
+        description:
+          "Roofing services for Clear Creek ISD high school campus.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-clear-lake-high-school.webp",
+      },
+      {
+        id: "hailey-elementary",
+        name: "Hailey Elementary",
+        description:
+          "Sheet metal installation and fabrication for elementary school campus.",
+        services: ["Sheet Metal"],
+        image: "/images/projects/schools-k12/sheet-metal-hailey-elementary-1.webp",
+      },
+      {
+        id: "mcadams-junior-high",
+        name: "McAdams Junior High",
+        description:
+          "Sheet metal services for junior high school facility.",
+        services: ["Sheet Metal"],
+        image: "/images/projects/schools-k12/sheet-metal-mcadams-junior-high-1.webp",
+      },
+      {
+        id: "il-palazzo",
+        name: "Il Palazzo",
+        description:
+          "Comprehensive waterproofing services for this luxury residential property.",
+        services: ["Waterproofing"],
+        image: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp",
+      },
+      {
+        id: "pvamu-engineering",
+        name: "Prairie View A&M University Engineering Building",
+        description:
+          "Complete roofing system installation for the university's engineering facility.",
+        services: ["Roofing"],
+        image: "/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp",
+      },
+      {
+        id: "9th-grade-center-spring-isd",
+        name: "9th Grade Center (Spring ISD)",
+        description:
+          "Roofing installation for Spring ISD's 9th grade campus.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-9th-grade-center-spring-isd.webp",
+      },
+      {
+        id: "dekaney-9th-grade-center",
+        name: "Dekaney 9th Grade Center (Spring ISD)",
+        description:
+          "Commercial roofing project for Spring ISD's Dekaney 9th grade facility.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-dekaney-9th-grade-center-spring-isd.webp",
+      },
+      {
+        id: "grand-oaks-high-school",
+        name: "Grand Oaks High School (Conroe ISD)",
+        description:
+          "Roofing installation for Conroe ISD's Grand Oaks High School.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-grand-oaks-high-school-conroe-isd.webp",
+      },
+      {
+        id: "new-caney-high-school",
+        name: "New Caney High School",
+        description:
+          "Commercial roofing project for New Caney ISD.",
+        services: ["Roofing"],
+        image: "/images/projects/schools-k12/roofing-new-caney-high-school.webp",
       },
     ],
   },
@@ -69,25 +166,7 @@ export const locations: Location[] = [
     region: "South Central Texas",
     description:
       "Serving the San Antonio metropolitan area with commercial roofing, waterproofing, and restoration services for historic and modern buildings.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=San+Antonio",
-    projects: [
-      {
-        id: "sa-1",
-        name: "Historic Downtown Building",
-        description: "Restoration and waterproofing for a historic commercial property.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=SA+Historic",
-        year: 2022,
-      },
-      {
-        id: "sa-2",
-        name: "Medical Center Facility",
-        description: "Commercial roofing installation for healthcare facility.",
-        services: ["Roofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=SA+Medical",
-        year: 2021,
-      },
-    ],
+    projects: [],
   },
   {
     id: "south-padre-island",
@@ -96,17 +175,7 @@ export const locations: Location[] = [
     region: "Gulf Coast",
     description:
       "Specialized coastal roofing and waterproofing services for South Padre Island's resort and commercial properties, built to withstand Gulf Coast weather.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=South+Padre+Island",
-    projects: [
-      {
-        id: "spi-1",
-        name: "Beachfront Resort",
-        description: "Hurricane-resistant roofing system for coastal resort property.",
-        services: ["Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=SPI+Resort",
-        year: 2023,
-      },
-    ],
+    projects: [],
   },
   {
     id: "rio-grande-valley",
@@ -115,17 +184,7 @@ export const locations: Location[] = [
     region: "South Texas",
     description:
       "Providing commercial roofing and restoration services throughout the Rio Grande Valley, including McAllen, Brownsville, and Harlingen.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Rio+Grande+Valley",
-    projects: [
-      {
-        id: "rgv-1",
-        name: "Valley Industrial Park",
-        description: "Large-scale commercial roofing for industrial facilities.",
-        services: ["Roofing", "Sheet Metal"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=RGV+Industrial",
-        year: 2022,
-      },
-    ],
+    projects: [],
   },
   {
     id: "beaumont",
@@ -134,25 +193,7 @@ export const locations: Location[] = [
     region: "Southeast Texas",
     description:
       "Serving the Beaumont-Port Arthur metropolitan area with commercial roofing and industrial waterproofing services.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Beaumont",
-    projects: [
-      {
-        id: "bmt-1",
-        name: "Lamar University",
-        description: "Campus-wide roofing maintenance and restoration.",
-        services: ["Roofing", "Restoration"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Lamar+University",
-        year: 2021,
-      },
-      {
-        id: "bmt-2",
-        name: "Downtown Beaumont Historic Building",
-        description: "Historic preservation and waterproofing services.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Beaumont+Historic",
-        year: 2020,
-      },
-    ],
+    projects: [],
   },
   {
     id: "port-arthur",
@@ -161,17 +202,7 @@ export const locations: Location[] = [
     region: "Southeast Texas",
     description:
       "Industrial and commercial roofing services for Port Arthur's refineries, petrochemical facilities, and commercial properties.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Port+Arthur",
-    projects: [
-      {
-        id: "pa-1",
-        name: "Industrial Refinery Complex",
-        description: "Specialized roofing for petrochemical facility.",
-        services: ["Roofing", "Sheet Metal"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=PA+Industrial",
-        year: 2023,
-      },
-    ],
+    projects: [],
   },
   {
     id: "sabine-pass",
@@ -180,17 +211,7 @@ export const locations: Location[] = [
     region: "Southeast Texas",
     description:
       "Serving the Sabine Pass area with industrial roofing and waterproofing services, including LNG facilities and port infrastructure.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Sabine+Pass",
-    projects: [
-      {
-        id: "sp-1",
-        name: "Port Facility",
-        description: "Industrial waterproofing for port infrastructure.",
-        services: ["Waterproofing", "Roofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Sabine+Port",
-        year: 2022,
-      },
-    ],
+    projects: [],
   },
   {
     id: "galveston",
@@ -199,31 +220,23 @@ export const locations: Location[] = [
     region: "Gulf Coast",
     description:
       "Historic preservation and coastal roofing expertise for Galveston Island's unique architectural heritage and modern commercial properties.",
-    image: "https://placehold.co/1920x600/5c1909/ffffff?text=Galveston",
+    image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp",
     projects: [
       {
-        id: "gal-1",
-        name: "Moody Gardens",
-        description: "Green roofing and waterproofing for iconic Galveston attraction.",
-        services: ["Green Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Moody+Gardens",
-        year: 2018,
+        id: "texas-am-galveston-dorms",
+        name: "Texas A&M Galveston Dormitories",
+        description:
+          "Waterproofing services for student dormitory buildings at the Galveston campus.",
+        services: ["Waterproofing"],
+        image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-1.webp",
       },
       {
-        id: "gal-2",
-        name: "Historic Strand District",
-        description: "Historic building restoration in downtown Galveston.",
-        services: ["Restoration", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=Strand+District",
-        year: 2020,
-      },
-      {
-        id: "gal-3",
-        name: "UTMB Health",
-        description: "Medical campus roofing and waterproofing services.",
-        services: ["Roofing", "Waterproofing"],
-        image: "https://placehold.co/600x400/5c1909/ffffff?text=UTMB",
-        year: 2021,
+        id: "texas-am-galveston-tennis",
+        name: "Texas A&M Galveston Tennis Courts",
+        description:
+          "Complete waterproofing restoration for the campus tennis court facilities.",
+        services: ["Waterproofing"],
+        image: "/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp",
       },
     ],
   },
@@ -234,13 +247,26 @@ export function getLocationBySlug(slug: string): Location | undefined {
 }
 
 export function getAllLocationSlugs(): string[] {
-  return locations.map((location) => location.slug);
+  // Only generate pages for locations with projects
+  return locations
+    .filter((location) => location.projects.length > 0)
+    .map((location) => location.slug);
+}
+
+export function getLocationsWithProjects(): Location[] {
+  return locations.filter((location) => location.projects.length > 0);
+}
+
+export function getServiceAreas(): Location[] {
+  return locations.filter((location) => location.projects.length === 0);
 }
 
 export function getLocationNavItems(): { name: string; href: string }[] {
+  // Only show locations with projects in navigation
+  const locationsWithProjects = getLocationsWithProjects();
   return [
     { name: "All Locations", href: "/locations" },
-    ...locations
+    ...locationsWithProjects
       .map((location) => ({
         name: location.name,
         href: `/locations/${location.slug}`,

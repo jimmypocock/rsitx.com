@@ -13,7 +13,7 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <section
-      className={`relative py-16 md:py-24 ${
+      className={`relative pt-32 pb-16 md:pt-40 md:pb-24 ${
         backgroundImage ? "text-white" : "bg-secondary-100 text-foreground"
       }`}
     >

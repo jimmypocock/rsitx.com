@@ -2,10 +2,38 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PageHeader, Section, ServiceCard } from "@/components/ui";
+import { PageHeader, Section, ServiceCard, ImageGallery } from "@/components/ui";
 import { TestimonialBlock } from "@/components/ui/Testimonials";
-import { services, getServiceBySlug, roofingSubServices } from "@/data/services";
+import { services, getServiceBySlug, roofingSubServices, roofingSystems, waterproofingApplications } from "@/data/services";
 import { company } from "@/data/company";
+import { projectCategories } from "@/data/projectCategories";
+
+// Get projects that match a service type
+function getProjectsForService(serviceId: string) {
+  const serviceMapping: Record<string, string[]> = {
+    roofing: ["Roofing"],
+    waterproofing: ["Waterproofing", "Restoration"],
+    "sheet-metal": ["Sheet Metal"],
+    "concrete-masonry": ["Concrete & Masonry", "Restoration"],
+  };
+
+  const matchingServices = serviceMapping[serviceId] || [];
+  const projects: { name: string; location: string; images: { src: string; alt: string }[] }[] = [];
+
+  projectCategories.forEach((category) => {
+    category.projects.forEach((project) => {
+      if (project.services.some((s) => matchingServices.includes(s)) && project.images && project.images.length > 0) {
+        projects.push({
+          name: project.name,
+          location: project.location,
+          images: project.images.slice(0, 4), // Show max 4 images per project
+        });
+      }
+    });
+  });
+
+  return projects.slice(0, 3); // Max 3 projects
+}
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -45,6 +73,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
   const isRoofingService = service.id === "roofing";
+  const isWaterproofingService = service.id === "waterproofing";
+  const relatedProjects = getProjectsForService(service.id);
 
   return (
     <>
@@ -120,6 +150,77 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
             )}
 
+            {/* Roofing Systems */}
+            {isRoofingService && (
+              <div className="mt-12">
+                <h3 className="text-xl font-semibold text-foreground mb-6">
+                  Roofing Systems We Install
+                </h3>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {roofingSystems.map((system) => (
+                    <div
+                      key={system.id}
+                      className="flex items-start gap-3 p-4 bg-white border border-gray-100 rounded-lg"
+                    >
+                      <div className="flex-shrink-0 w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <span className="text-primary-600 font-bold text-xs">
+                          {system.acronym || system.name.substring(0, 3).toUpperCase()}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground text-sm">
+                          {system.acronym ? `${system.acronym} - ${system.name}` : system.name}
+                        </h4>
+                        <p className="mt-1 text-xs text-foreground-muted">
+                          {system.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Waterproofing Applications */}
+            {isWaterproofingService && (
+              <div className="mt-12">
+                <h3 className="text-xl font-semibold text-foreground mb-6">
+                  Waterproofing Applications
+                </h3>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {waterproofingApplications.map((app) => (
+                    <div
+                      key={app.id}
+                      className="flex items-start gap-3 p-4 bg-white border border-gray-100 rounded-lg"
+                    >
+                      <svg
+                        className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                      <div>
+                        <h4 className="font-semibold text-foreground text-sm">
+                          {app.name}
+                        </h4>
+                        <p className="mt-1 text-xs text-foreground-muted">
+                          {app.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Testimonial */}
             {service.testimonial && (
               <div className="mt-12">
@@ -167,8 +268,62 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </Section>
 
+      {/* Project Examples */}
+      {relatedProjects.length > 0 && (
+        <Section background="alt">
+          <h2 className="text-2xl font-bold text-foreground mb-2 text-center">
+            Recent {service.title} Projects
+          </h2>
+          <p className="text-center text-foreground-muted mb-8">
+            Click any image to view full size
+          </p>
+          <div className="space-y-10">
+            {relatedProjects.map((project, idx) => (
+              <div key={idx} className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {project.name}
+                  </h3>
+                  <span className="text-sm text-primary-600 font-medium">
+                    {project.location}
+                  </span>
+                </div>
+                <ImageGallery
+                  images={project.images}
+                  columns={project.images.length >= 4 ? 4 : project.images.length >= 3 ? 3 : 2}
+                  aspectRatio="4/3"
+                  gap="sm"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/projects"
+              className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500"
+            >
+              View all projects
+              <svg
+                className="ml-2 h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
+        </Section>
+      )}
+
       {/* Other Services */}
-      <Section background="alt">
+      <Section background={relatedProjects.length > 0 ? undefined : "alt"}>
         <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
           Other Services
         </h2>

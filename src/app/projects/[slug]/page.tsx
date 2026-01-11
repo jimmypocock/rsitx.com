@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section, SectionHeader, ImageGallery, BeforeAfterGrid } from "@/components/ui";
 import { company } from "@/data/company";
 import {
   projectCategories,
@@ -52,7 +52,7 @@ export default async function ProjectCategoryPage({
   return (
     <>
       {/* Hero */}
-      <div className="relative bg-primary-600 text-white">
+      <div className="relative bg-primary-600 text-white pt-28 md:pt-32">
         <div className="absolute inset-0">
           <Image
             src={category.image}
@@ -62,7 +62,7 @@ export default async function ProjectCategoryPage({
             priority
           />
         </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <Link
             href="/projects"
             className="inline-flex items-center text-primary-200 hover:text-white mb-6 transition-colors"
@@ -102,48 +102,88 @@ export default async function ProjectCategoryPage({
         />
 
         {category.projects.length > 0 ? (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-12">
             {category.projects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl overflow-hidden shadow-md"
               >
-                <div className="aspect-[4/3] relative">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  {project.year && (
-                    <div className="absolute top-4 right-4">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-white/90 text-foreground">
-                        {project.year}
-                      </span>
+                <div className="md:flex">
+                  {/* Project Info */}
+                  <div className="md:w-1/3 p-6 md:p-8">
+                    <div className="flex items-start justify-between">
+                      <h3 className="text-xl font-bold text-foreground">
+                        {project.name}
+                      </h3>
+                      {project.year && (
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-primary-100 text-primary-700">
+                          {project.year}
+                        </span>
+                      )}
                     </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-foreground">
-                    {project.name}
-                  </h3>
-                  <p className="text-sm text-primary-600 font-medium">
-                    {project.location}
-                  </p>
-                  <p className="mt-2 text-sm text-foreground-muted">
-                    {project.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.services.map((service) => (
-                      <span
-                        key={service}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700"
-                      >
-                        {service}
-                      </span>
-                    ))}
+                    <p className="text-sm text-primary-600 font-medium mt-1">
+                      {project.location}
+                    </p>
+                    <p className="mt-4 text-foreground-muted">
+                      {project.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.services.map((service) => (
+                        <span
+                          key={service}
+                          className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700"
+                        >
+                          {service}
+                        </span>
+                      ))}
+                    </div>
+                    {project.images && project.images.length > 1 && (
+                      <p className="mt-4 text-sm text-foreground-muted">
+                        {project.images.length} photos available
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Project Images */}
+                  <div className="md:w-2/3 p-6 md:p-8 bg-secondary-50">
+                    {project.images && project.images.length > 0 ? (
+                      <ImageGallery
+                        images={project.images}
+                        columns={project.images.length >= 4 ? 4 : project.images.length >= 3 ? 3 : 2}
+                        aspectRatio="4/3"
+                        gap="sm"
+                      />
+                    ) : (
+                      <div className="aspect-[4/3] relative rounded-lg overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
+
+                {/* Before/After Section */}
+                {project.beforeAfterPairs && project.beforeAfterPairs.length > 0 && (
+                  <div className="border-t border-secondary-200 p-6 md:p-8">
+                    <h4 className="text-lg font-semibold text-foreground mb-4">
+                      Before & After Comparison
+                    </h4>
+                    <BeforeAfterGrid
+                      pairs={project.beforeAfterPairs.slice(0, 4)}
+                      columns={2}
+                      aspectRatio="4/3"
+                    />
+                    {project.beforeAfterPairs.length > 4 && (
+                      <p className="mt-4 text-sm text-foreground-muted text-center">
+                        +{project.beforeAfterPairs.length - 4} more comparisons available
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -24,7 +24,7 @@ export default function ProjectsPage() {
         title="Our Projects"
         subtitle="Portfolio"
         description="The Gulf Coast Experts"
-        backgroundImage="https://placehold.co/1920x600/5c1909/ffffff?text=RSI+Projects"
+        backgroundImage="/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp"
       />
 
       {/* Intro */}

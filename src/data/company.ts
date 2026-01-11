@@ -29,7 +29,42 @@ export const company = {
 
   serviceArea: "Southeast Texas",
 
-  memberships: ["NRCA", "RCAT", "WSRCA", "RCI", "AGC", "ASA", "ICRI"],
+  memberships: [
+    { id: "nrca", name: "NRCA", fullName: "National Roofing Contractors Association", logo: "/images/logos/memberships/nrca.png" },
+    { id: "wsrca", name: "WSRCA", fullName: "Western States Roofing Contractors Association", logo: "/images/logos/memberships/wsrca.png" },
+    { id: "iibec", name: "IIBEC", fullName: "International Institute of Building Enclosure Consultants", logo: "/images/logos/memberships/iibec.png" },
+    { id: "agc", name: "AGC", fullName: "Associated General Contractors", logo: "/images/logos/memberships/agc.png" },
+    { id: "asa", name: "ASA", fullName: "American Subcontractors Association", logo: "/images/logos/memberships/asa.png" },
+    { id: "icri", name: "ICRI", fullName: "International Concrete Repair Institute", logo: "/images/logos/memberships/icri.png" },
+  ],
+
+  // Notable past clients from marketing materials
+  notableClients: [
+    { id: "tmc", name: "Texas Medical Center", logo: "/images/logos/clients/tmc-dark.png" },
+    { id: "mdanderson", name: "MD Anderson Cancer Center", logo: "/images/logos/clients/mdanderson.webp" },
+    { id: "hilton", name: "Hilton", logo: "/images/logos/clients/hilton.svg" },
+    { id: "metronational", name: "MetroNational", logo: "/images/logos/clients/metronational.svg" },
+    { id: "fourleaf", name: "Four Leaf Towers", logo: "/images/logos/clients/four-leaf.png" },
+  ],
+
+  // Key differentiators
+  differentiators: {
+    infraredDetection: {
+      title: "Infrared Leak Detection",
+      description:
+        "RSI employs infrared leak detection methods to pinpoint unseen leaks and potential leakage hotspots before they become major problems. Early detection can save thousands in repairs.",
+    },
+    onSiteShop: {
+      title: "On-Site Sheet Metal Shop",
+      description:
+        "Our in-house sheet metal shop can cut, shape, and install custom components without relying on third parties—faster turnaround, precise fit, and quality control.",
+    },
+    gulfCoastExpertise: {
+      title: "Gulf Coast Expertise",
+      description:
+        "For more than six decades, clients have relied on RSI's unique expertise in roofing and waterproofing buildings along the Gulf Coast. We're the authority on keeping moisture out of buildings in this challenging climate.",
+    },
+  },
 
   social: {
     linkedin: "#",
@@ -63,7 +98,10 @@ export const navigation: Navigation = {
     {
       name: "Services",
       href: "/services",
-      children: getServiceNavItems(),
+      children: [
+        ...getServiceNavItems(),
+        { name: "Maintenance Programs", href: "/maintenance" },
+      ],
     },
     {
       name: "Projects",
@@ -93,11 +131,13 @@ export const navigation: Navigation = {
       ],
     },
     { name: "About", href: "/about" },
+    { name: "Credentials", href: "/credentials" },
   ],
   footer: {
     services: getServiceNavItems().filter((item) => item.href !== "/services"),
     company: [
       { name: "About Us", href: "/about" },
+      { name: "Credentials", href: "/credentials" },
       { name: "Projects", href: "/projects" },
       { name: "Recognition", href: "/recognition" },
       { name: "Products", href: "/products" },
