@@ -28,6 +28,18 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
@@ -246,7 +258,7 @@ export function Header() {
 
         {/* Mobile menu - always has solid background */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t shadow-lg" id="mobile-menu">
+          <div className="lg:hidden bg-white border-t shadow-lg max-h-[calc(100vh-6.5rem)] overflow-y-auto" id="mobile-menu">
             <div className="px-4 py-3 space-y-1">
               {navigation.main.map((item) => (
                 <div key={item.name}>

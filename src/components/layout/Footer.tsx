@@ -161,11 +161,22 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-primary-600">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-primary-200">
-              &copy; {currentYear} {company.name}. All rights reserved.
-            </p>
+            <div className="text-sm text-primary-200">
+              <p>&copy; {currentYear} {company.name}. All rights reserved.</p>
+              <p className="mt-1">
+                Website by{" "}
+                <a
+                  href="https://pococklabs.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Pocock Labs
+                </a>
+              </p>
+            </div>
             <div className="flex flex-wrap gap-4 text-sm text-primary-200">
-              <span>Member of: {company.memberships.join(", ")}</span>
+              <span>Member of: {company.memberships.map((m) => m.name).join(", ")}</span>
             </div>
           </div>
         </div>
