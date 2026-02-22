@@ -84,6 +84,29 @@ const era3Projects: EraProject[] = [
   },
 ];
 
+const era4Projects: EraProject[] = [
+  {
+    name: "Grand Oaks High School",
+    image: "/images/projects/schools-k12/roofing-grand-oaks-high-school-conroe-isd.webp",
+    alt: "Grand Oaks High School roofing project",
+  },
+  {
+    name: "Il Palazzo Houston",
+    image: "/images/projects/multi-family/waterproofing-il-palazzo-houston-tx-1.webp",
+    alt: "Il Palazzo Houston waterproofing project",
+  },
+  {
+    name: "Clear Lake High School",
+    image: "/images/projects/schools-k12/roofing-clear-lake-high-school.webp",
+    alt: "Clear Lake High School roofing project",
+  },
+  {
+    name: "Sheet Metal Craftsmanship",
+    image: "/images/rsi-team-sheet-metal-work.webp",
+    alt: "RSI team performing sheet metal work",
+  },
+];
+
 const growthStats = [
   { metric: "Field Employees", year1985: "10", year2015: "100+" },
   { metric: "Office Staff", year1985: "3", year2015: "12" },
@@ -195,11 +218,11 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        {/* Era 3: 2000-Present */}
+        {/* Era 3: 2000-2019 */}
         <Section className="relative">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
             <div className="lg:pr-12">
-              <EraBadge years="2000 – Present" />
+              <EraBadge years="2000 – 2019" />
               <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                 Expanding Our Capabilities
               </h2>
@@ -248,7 +271,33 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="lg:pl-12">
-              <ProjectGrid projects={era3Projects} title="Recent Projects" />
+              <ProjectGrid projects={era3Projects} title="Expansion Era Projects" />
+            </div>
+          </div>
+        </Section>
+
+        {/* Era 4: 2020-Present */}
+        <Section background="alt" className="relative">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+            <div className="lg:order-2 lg:pl-12">
+              <EraBadge years="2020 – Present" />
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                A New Chapter, The Same Commitment
+              </h2>
+              <div className="mt-4 space-y-3 text-foreground-muted">
+                <p>
+                  In <strong className="text-foreground">2020</strong>, Mike Pocock and Bryan Lindsey joined the ownership of Restoration Services, Inc., and by early <strong className="text-foreground">2021</strong> had assumed full ownership of the company.
+                </p>
+                <p>
+                  Building on the legacy of nearly a century of craftsmanship and customer service, RSI&apos;s new leadership carries forward the values established by those who came before—including <strong className="text-foreground">Jimmy Smith</strong>, who passed away in February 2022, just seven days after his 69th birthday.
+                </p>
+                <p>
+                  In his memory and in honor of every tradesman who built this company, RSI remains committed to the service excellence that has defined us since 1932.
+                </p>
+              </div>
+            </div>
+            <div className="lg:order-1 lg:pr-12">
+              <ProjectGrid projects={era4Projects} title="Recent Projects" />
             </div>
           </div>
         </Section>
@@ -283,7 +332,7 @@ export default function AboutPage() {
               Field-Proven Leadership
             </h3>
             <p className="mt-2 text-sm text-foreground-muted group-hover:text-primary-100 transition-colors">
-              Led by people who grew up in the trades. Our President started as an apprentice in 1972.
+              Leadership rooted in the trades. Nearly a century of hands-on expertise guides every project.
             </p>
           </div>
           <div className="group bg-secondary-50 hover:bg-primary-600 rounded-xl p-6 transition-colors duration-200">
