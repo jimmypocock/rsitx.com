@@ -113,13 +113,6 @@ export const navigation: Navigation = {
       href: "/locations",
       children: getLocationNavItems(),
     },
-    {
-      name: "Recognition",
-      href: "/recognition",
-      children: [
-        { name: "Good Brick Award 2025", href: "/recognition/good-brick-award-2025" },
-      ],
-    },
     { name: "Products", href: "/products" },
     { name: "Green Initiative", href: "/green-initiative" },
     {
@@ -130,18 +123,25 @@ export const navigation: Navigation = {
         { name: "Job Opportunities", href: "#", external: true }, // TBD - external link
       ],
     },
-    { name: "About", href: "/about" },
-    { name: "Team", href: "/team" },
-    { name: "Credentials", href: "/credentials" },
+    {
+      name: "About",
+      href: "/about",
+      children: [
+        { name: "Our Story", href: "/about" },
+        { name: "Our Team", href: "/team" },
+        { name: "Credentials", href: "/credentials" },
+        { name: "Recognition", href: "/recognition" },
+      ],
+    },
   ],
   footer: {
     services: getServiceNavItems().filter((item) => item.href !== "/services"),
     company: [
-      { name: "About Us", href: "/about" },
-      { name: "Team", href: "/team" },
+      { name: "Our Story", href: "/about" },
+      { name: "Our Team", href: "/team" },
       { name: "Credentials", href: "/credentials" },
-      { name: "Projects", href: "/projects" },
       { name: "Recognition", href: "/recognition" },
+      { name: "Projects", href: "/projects" },
       { name: "Products", href: "/products" },
       { name: "Green Initiative", href: "/green-initiative" },
       { name: "Contact", href: "/contact" },

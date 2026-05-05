@@ -5,7 +5,7 @@ import { PageHeader, Section, SectionHeader } from "@/components/ui";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "Our Story",
   description: `Learn about ${company.name}, drawing on nearly a century of field experience in commercial roofing, waterproofing, and building restoration services serving Texas.`,
 };
 
@@ -155,8 +155,8 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="About Us"
-        subtitle="The RSI Story"
+        title="Our Story"
+        subtitle="About RSI"
         description="A Legacy of Texas Trades"
         backgroundImage="/images/projects/historical/waterproofing-buffalo-soldiers-museum-2.webp"
       />
