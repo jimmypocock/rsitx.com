@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
-const WEB3FORMS_ACCESS_KEY = "00d5ca3f-cd13-4ef3-bdde-8b38a9e8ccfb";
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 const serviceOptions = [
   { value: "", label: "Select a service" },
@@ -33,6 +33,12 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("submitting");
     setErrorMessage("");
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setStatus("error");
+      setErrorMessage("Form is not configured. Please call us directly.");
+      return;
+    }
 
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", WEB3FORMS_ACCESS_KEY);

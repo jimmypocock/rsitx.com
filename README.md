@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rsitx.com
 
-## Getting Started
+Marketing website for **Restoration Services, Inc. (RSI)** — a Houston-based commercial roofing, waterproofing, and building restoration company. Live at https://rsitx.com.
 
-First, run the development server:
+Built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS v4. Hosted on Vercel.
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dev server runs at http://localhost:451.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the Next.js dev server on port 451 |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint (`eslint-config-next`) |
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Name | Required | Notes |
+| --- | --- | --- |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | yes (prod) | Web3Forms access key for the contact form. Public by design — exposed to the browser. Manage in the Vercel project's env vars. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/                     # App Router routes
+  components/layout/       # Header, Footer
+  components/ui/           # Hero, Section, ContactForm, ImageGallery, etc.
+  data/                    # Static content as typed TypeScript modules
+  lib/                     # analytics.ts (track helpers)
+public/images/             # Site imagery (webp preferred)
+```
 
-## Deploy on Vercel
+Content (services, projects, locations, credentials, etc.) lives in `src/data/*.ts`. The main nav and `sitemap.ts` are generated from those modules — adding a new service or location route picks up automatically.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For the rest of the architectural detail (conventions, things-to-know, brand colors, redirects), see [CLAUDE.md](./CLAUDE.md).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Auto-deploys to Vercel on push to `main`. Set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in the Vercel project's Environment Variables (Production + Preview) before the first deploy or the contact form will refuse to submit.

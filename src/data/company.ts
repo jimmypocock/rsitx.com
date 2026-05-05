@@ -2,15 +2,15 @@ import { getServiceNavItems } from "./services";
 import { getLocationNavItems } from "./locations";
 import { getProjectCategoryNavItems } from "./projectCategories";
 
+const LEGACY_FOUNDED_YEAR = 1932; // Hou-Tex Roofing — RSI traces its lineage here
+
 export const company = {
   name: "Restoration Services, Inc.",
   shortName: "RSI",
   tagline: "Building confidence",
   description:
     "Restoration Services, Inc. draws on nearly a century of field experience in commercial roofing, waterproofing, and building restoration services serving Texas.",
-  legacyFounded: 1932, // Hou-Tex Roofing founded
-  rsiFounded: 1982, // RSI officially formed
-  yearsOfLegacy: new Date().getFullYear() - 1932,
+  yearsOfLegacy: new Date().getFullYear() - LEGACY_FOUNDED_YEAR,
 
   contact: {
     phone: "(281) 890-1880",
