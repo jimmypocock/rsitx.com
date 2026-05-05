@@ -131,12 +131,14 @@ export const navigation: Navigation = {
       ],
     },
     { name: "About", href: "/about" },
+    { name: "Team", href: "/team" },
     { name: "Credentials", href: "/credentials" },
   ],
   footer: {
     services: getServiceNavItems().filter((item) => item.href !== "/services"),
     company: [
       { name: "About Us", href: "/about" },
+      { name: "Team", href: "/team" },
       { name: "Credentials", href: "/credentials" },
       { name: "Projects", href: "/projects" },
       { name: "Recognition", href: "/recognition" },
