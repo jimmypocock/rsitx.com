@@ -36,6 +36,43 @@ function getProjectsForService(serviceId: string) {
   return projects.slice(0, 3); // Max 3 projects
 }
 
+// Houston-targeted titles, descriptions, and PageHeader copy per service.
+// Kept here (not in services data) because these are SEO-tuned for the
+// /services/[slug] route specifically and don't belong in the shared model.
+const SERVICE_SEO: Record<
+  string,
+  { title: string; description: string; pageDescription: string }
+> = {
+  roofing: {
+    title: "Commercial Roofing in Houston, TX",
+    description:
+      "Commercial roofing in Houston, TX — new construction, re-roofing, infrared leak detection, and storm repairs. Serving Southeast Texas since 1932.",
+    pageDescription:
+      "Complete commercial roofing solutions for Houston and Southeast Texas — from new construction to repairs.",
+  },
+  waterproofing: {
+    title: "Commercial Waterproofing in Houston, TX",
+    description:
+      "Commercial waterproofing services in Houston — below-grade, plaza decks, parking structures, and building envelope. Gulf Coast specialists since 1932.",
+    pageDescription:
+      "The Gulf Coast's authority on waterproofing — protect your Houston building from moisture damage.",
+  },
+  "sheet-metal": {
+    title: "Architectural Sheet Metal in Houston, TX",
+    description:
+      "Custom architectural sheet metal in Houston — coping, flashing, gutters, expansion joints, and metal panels. In-house fabrication shop, fast turnaround.",
+    pageDescription:
+      "Custom architectural sheet metal fabrication and installation in Houston, from our in-house shop.",
+  },
+  "concrete-masonry": {
+    title: "Concrete & Masonry Restoration in Houston, TX",
+    description:
+      "Commercial concrete and masonry restoration in Houston — expansion joints, tuckpointing, exterior wall coatings, and historic preservation.",
+    pageDescription:
+      "Concrete repair, masonry restoration, and building envelope services for Houston commercial properties.",
+  },
+};
+
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -58,9 +95,14 @@ export async function generateMetadata({
     };
   }
 
+  const seo = SERVICE_SEO[slug];
+
   return {
-    title: service.title,
-    description: service.shortDescription,
+    title: seo?.title ?? service.title,
+    description: seo?.description ?? service.shortDescription,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
   };
 }
 
@@ -77,13 +119,34 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const isWaterproofingService = service.id === "waterproofing";
   const relatedProjects = getProjectsForService(service.id);
   const teamMembers = getStaffForService(service.slug);
+  const seo = SERVICE_SEO[slug];
+
+  const serviceSchema = seo && {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: seo.title,
+    description: seo.description,
+    provider: { "@id": "https://rsitx.com/#business" },
+    areaServed: [
+      { "@type": "City", name: "Houston" },
+      { "@type": "AdministrativeArea", name: "Southeast Texas" },
+    ],
+    serviceType: service.title,
+    url: `https://rsitx.com/services/${slug}`,
+  };
 
   return (
     <>
+      {serviceSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+      )}
       <PageHeader
         title={service.title}
         subtitle="Our Services"
-        description={service.shortDescription}
+        description={seo?.pageDescription ?? service.shortDescription}
         backgroundImage={service.image}
       />
 

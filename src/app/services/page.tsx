@@ -5,8 +5,9 @@ import { services } from "@/data/services";
 import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: `${company.name} provides comprehensive roofing, waterproofing, and restoration services for commercial buildings in Southeast Texas.`,
+  title: "Commercial Roofing & Waterproofing Services in Houston, TX",
+  description: `${company.name} provides commercial roofing, waterproofing, sheet metal, and restoration services in Houston and Southeast Texas. Nearly a century of Gulf Coast expertise.`,
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
