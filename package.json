@@ -6,7 +6,10 @@
     "dev": "next dev --port 451",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:console": "node scripts/console-check.mjs",
+    "audit:lighthouse": "npx -y @unlighthouse/cli --site http://localhost:451",
+    "audit:a11y": "npx -y @axe-core/cli http://localhost:451/ http://localhost:451/about http://localhost:451/team http://localhost:451/services/roofing http://localhost:451/contact"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
@@ -23,6 +26,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "playwright": "^1.59.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -142,6 +142,7 @@ export default function GreenInitiativePage() {
               src="/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-3.webp"
               alt="Commercial roofing installation at University of Houston"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>

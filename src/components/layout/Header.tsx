@@ -106,6 +106,7 @@ export function Header() {
                     src={isTransparent ? "/images/logo-white.svg" : "/images/logo.svg"}
                     alt={company.name}
                     fill
+                    sizes="128px"
                     className="object-contain object-left"
                     priority
                   />

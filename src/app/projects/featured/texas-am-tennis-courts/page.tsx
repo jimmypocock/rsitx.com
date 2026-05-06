@@ -84,6 +84,7 @@ export default function TexasAMTennisCourtsPage() {
             src="/images/projects/colleges-universities/waterproofing-texas-am-galveston-tennis-courts-1.webp"
             alt="Texas A&M Galveston Tennis Courts after restoration"
             fill
+            sizes="100vw"
             className="object-cover opacity-40"
             priority
           />
@@ -253,6 +254,7 @@ export default function TexasAMTennisCourtsPage() {
                 src="/images/projects/colleges-universities/waterproofing-texas-am-galveston-dorms-1.webp"
                 alt="Texas A&M Galveston Dormitories"
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -272,6 +274,7 @@ export default function TexasAMTennisCourtsPage() {
                 src="/images/projects/colleges-universities/roofing-pvamu-engineering-building-1.webp"
                 alt="Prairie View A&M Engineering Building"
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -291,6 +294,7 @@ export default function TexasAMTennisCourtsPage() {
                 src="/images/projects/colleges-universities/roofing-university-of-houston-science-and-tech-building-1.webp"
                 alt="UH Science & Technology Building"
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>

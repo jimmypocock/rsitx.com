@@ -135,6 +135,7 @@ function ProjectGrid({ projects, title }: { projects: EraProject[]; title: strin
                 src={project.image}
                 alt={project.alt}
                 fill
+                sizes="(min-width: 1024px) 22vw, 50vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

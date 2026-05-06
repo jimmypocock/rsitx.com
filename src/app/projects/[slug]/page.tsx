@@ -58,6 +58,7 @@ export default async function ProjectCategoryPage({
             src={category.image}
             alt={category.name}
             fill
+            sizes="100vw"
             className="object-cover opacity-30"
             priority
           />
@@ -103,7 +104,7 @@ export default async function ProjectCategoryPage({
 
         {category.projects.length > 0 ? (
           <div className="space-y-12">
-            {category.projects.map((project) => (
+            {category.projects.map((project, idx) => (
               <div
                 key={project.id}
                 className="bg-white rounded-xl overflow-hidden shadow-md"
@@ -152,6 +153,7 @@ export default async function ProjectCategoryPage({
                         columns={project.images.length >= 4 ? 4 : project.images.length >= 3 ? 3 : 2}
                         aspectRatio="4/3"
                         gap="sm"
+                        priorityFirst={idx === 0}
                       />
                     ) : (
                       <div className="aspect-[4/3] relative rounded-lg overflow-hidden">
@@ -159,6 +161,8 @@ export default async function ProjectCategoryPage({
                           src={project.image}
                           alt={project.name}
                           fill
+                          sizes="(min-width: 768px) 67vw, 100vw"
+                          priority={idx === 0}
                           className="object-cover"
                         />
                       </div>
@@ -273,6 +277,7 @@ export default async function ProjectCategoryPage({
                   src={otherCategory.image}
                   alt={otherCategory.name}
                   fill
+                  sizes="64px"
                   className="object-cover"
                 />
               </div>

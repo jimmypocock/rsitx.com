@@ -43,3 +43,9 @@ next-env.d.ts
 
 # private files
 /.private
+
+# audit output
+/.unlighthouse
+
+# Claude Code per-developer settings (team settings.json could be committed)
+.claude/settings.local.json
