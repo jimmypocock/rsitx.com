@@ -97,6 +97,7 @@ export default function HomePage() {
               src="/images/rsi-team-sheet-metal-work.webp"
               alt="RSI team at work on sheet metal at Hailey Elementary"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover object-left"
             />
           </div>
@@ -121,6 +122,7 @@ export default function HomePage() {
                   src={project.image}
                   alt={project.name}
                   fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

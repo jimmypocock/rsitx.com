@@ -81,6 +81,7 @@ export default function GoodBrickAward2025Page() {
             src="/images/projects/historical/waterproofing-buffalo-soldiers-museum-1.webp"
             alt="Buffalo Soldiers National Museum - Houston Light Guard Armory"
             fill
+            sizes="100vw"
             className="object-cover opacity-40"
             priority
           />
@@ -252,6 +253,7 @@ export default function GoodBrickAward2025Page() {
               src="/images/projects/historical/waterproofing-buffalo-soldiers-museum-2.webp"
               alt="Buffalo Soldiers Museum exterior restoration by RSI"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>
@@ -260,6 +262,7 @@ export default function GoodBrickAward2025Page() {
               src="/images/projects/historical/waterproofing-buffalo-soldiers-museum-3.webp"
               alt="Historic masonry restoration work"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>

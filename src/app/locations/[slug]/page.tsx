@@ -51,6 +51,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
               src={location.image}
               alt={`${location.name} skyline`}
               fill
+              sizes="100vw"
               className="object-cover opacity-30"
               priority
             />
@@ -97,6 +98,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     src={project.image}
                     alt={project.name}
                     fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   {project.year && (
@@ -212,6 +214,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     src={otherLocation.image}
                     alt={otherLocation.name}
                     fill
+                    sizes="64px"
                     className="object-cover"
                   />
                 </div>

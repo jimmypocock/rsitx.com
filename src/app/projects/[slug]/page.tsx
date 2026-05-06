@@ -58,6 +58,7 @@ export default async function ProjectCategoryPage({
             src={category.image}
             alt={category.name}
             fill
+            sizes="100vw"
             className="object-cover opacity-30"
             priority
           />
@@ -159,6 +160,7 @@ export default async function ProjectCategoryPage({
                           src={project.image}
                           alt={project.name}
                           fill
+                          sizes="(min-width: 768px) 67vw, 100vw"
                           className="object-cover"
                         />
                       </div>
@@ -273,6 +275,7 @@ export default async function ProjectCategoryPage({
                   src={otherCategory.image}
                   alt={otherCategory.name}
                   fill
+                  sizes="64px"
                   className="object-cover"
                 />
               </div>

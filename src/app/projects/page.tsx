@@ -57,6 +57,7 @@ export default function ProjectsPage() {
                   src={category.image}
                   alt={`${category.name} projects`}
                   fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -103,6 +104,7 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={project.name}
                     fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   {project.year && (
