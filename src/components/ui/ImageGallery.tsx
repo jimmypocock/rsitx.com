@@ -17,6 +17,7 @@ interface ImageGalleryProps {
   gap?: "sm" | "md" | "lg";
   showLightbox?: boolean;
   className?: string;
+  priorityFirst?: boolean;
 }
 
 const columnClasses = {
@@ -45,6 +46,7 @@ export function ImageGallery({
   gap = "md",
   showLightbox = true,
   className = "",
+  priorityFirst = false,
 }: ImageGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,7 +99,8 @@ export function ImageGallery({
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes={`(max-width: 640px) 100vw, (max-width: 1024px) 50vw, ${Math.floor(100 / columns)}vw`}
-              loading={index < 6 ? "eager" : "lazy"}
+              priority={priorityFirst && index === 0}
+              loading={priorityFirst && index === 0 ? undefined : index < 6 ? "eager" : "lazy"}
             />
             {showLightbox && (
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

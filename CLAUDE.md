@@ -15,13 +15,16 @@ No tests, no CI config in-repo.
 ## Commands
 
 ```bash
-npm run dev    # next dev on port 451
-npm run build  # next build
-npm run start  # next start
-npm run lint   # eslint
+npm run dev               # next dev on port 451
+npm run build             # next build
+npm run start             # next start
+npm run lint              # eslint
+npm run audit:console     # walk every sitemap URL with Playwright, report console warnings/errors
+npm run audit:lighthouse  # full unlighthouse pass on the local dev server (perf, a11y, BP, SEO)
+npm run audit:a11y        # axe-core a11y scan on key pages
 ```
 
-The dev port is **451**, not 3000.
+The dev port is **451**, not 3000. Audit scripts assume `npm run dev` is already running.
 
 ## Environment variables
 

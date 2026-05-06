@@ -88,7 +88,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {location.projects.length > 0 ? (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {location.projects.map((project) => (
+            {location.projects.map((project, idx) => (
               <div
                 key={project.id}
                 className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
@@ -99,6 +99,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     alt={project.name}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    priority={idx === 0}
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   {project.year && (
