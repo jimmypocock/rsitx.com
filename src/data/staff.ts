@@ -1,5 +1,6 @@
 export type StaffDepartment =
   | "leadership"
+  | "outside-sales"
   | "office"
   | "roofing"
   | "waterproofing"
@@ -24,6 +25,12 @@ export const departments: Department[] = [
     id: "leadership",
     name: "Leadership & Operations",
     description: "Setting direction and overseeing projects company-wide.",
+  },
+  {
+    id: "outside-sales",
+    name: "Outside Sales",
+    description:
+      "Working directly with property owners and building managers across our service area.",
   },
   {
     id: "office",
@@ -72,12 +79,14 @@ export const staff: StaffMember[] = [
     department: "leadership",
     image: "/images/staff/kyle-barron.webp",
   },
+
+  // Outside Sales
   {
-    id: "brantley-stewart",
-    name: "Brantley Stewart",
-    role: "Project Superintendent",
-    department: "leadership",
-    image: "/images/staff/brantley-stewart.webp",
+    id: "sonja-garcia",
+    name: "Sonja Garcia",
+    role: "Senior Accounts Manager",
+    department: "outside-sales",
+    image: "/images/staff/sonja-garcia.webp",
   },
 
   // Office & Finance
@@ -95,13 +104,6 @@ export const staff: StaffMember[] = [
     department: "office",
     image: "/images/staff/erin-harrington.webp",
   },
-  {
-    id: "sonja-garcia",
-    name: "Sonja Garcia",
-    role: "Senior Accounts Manager",
-    department: "office",
-    image: "/images/staff/sonja-garcia.webp",
-  },
 
   // Roofing
   {
@@ -109,7 +111,7 @@ export const staff: StaffMember[] = [
     name: "Gary Hayes",
     role: "Roofing Superintendent",
     department: "roofing",
-    image: "/images/staff/gary-hayes.webp", // monogram stub — replace with real photo when available
+    image: "/images/staff/gary-hayes.webp",
   },
   {
     id: "frank-mouton",
@@ -147,6 +149,13 @@ export const staff: StaffMember[] = [
     role: "Waterproofing Superintendent",
     department: "waterproofing",
     image: "/images/staff/orlando-vera.webp",
+  },
+  {
+    id: "brantley-stewart",
+    name: "Brantley Stewart",
+    role: "Project Superintendent",
+    department: "waterproofing",
+    image: "/images/staff/brantley-stewart.webp",
   },
   {
     id: "carlos-cabrera",

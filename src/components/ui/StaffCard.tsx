@@ -9,7 +9,7 @@ interface StaffCardProps {
 export function StaffCard({ person, priority = false }: StaffCardProps) {
   return (
     <article className="group">
-      <div className="relative aspect-square overflow-hidden rounded-lg bg-secondary-100 shadow-sm">
+      <div className="relative aspect-square overflow-hidden rounded-lg bg-secondary-50 shadow-sm ring-1 ring-secondary-200/70">
         <Image
           src={person.image}
           alt={person.name}
