@@ -2,15 +2,15 @@ import { getServiceNavItems } from "./services";
 import { getLocationNavItems } from "./locations";
 import { getProjectCategoryNavItems } from "./projectCategories";
 
+const LEGACY_FOUNDED_YEAR = 1932; // Hou-Tex Roofing — RSI traces its lineage here
+
 export const company = {
   name: "Restoration Services, Inc.",
   shortName: "RSI",
   tagline: "Building confidence",
   description:
     "Restoration Services, Inc. draws on nearly a century of field experience in commercial roofing, waterproofing, and building restoration services serving Texas.",
-  legacyFounded: 1932, // Hou-Tex Roofing founded
-  rsiFounded: 1982, // RSI officially formed
-  yearsOfLegacy: new Date().getFullYear() - 1932,
+  yearsOfLegacy: new Date().getFullYear() - LEGACY_FOUNDED_YEAR,
 
   contact: {
     phone: "(281) 890-1880",
@@ -113,13 +113,6 @@ export const navigation: Navigation = {
       href: "/locations",
       children: getLocationNavItems(),
     },
-    {
-      name: "Recognition",
-      href: "/recognition",
-      children: [
-        { name: "Good Brick Award 2025", href: "/recognition/good-brick-award-2025" },
-      ],
-    },
     { name: "Products", href: "/products" },
     { name: "Green Initiative", href: "/green-initiative" },
     {
@@ -130,16 +123,25 @@ export const navigation: Navigation = {
         { name: "Job Opportunities", href: "#", external: true }, // TBD - external link
       ],
     },
-    { name: "About", href: "/about" },
-    { name: "Credentials", href: "/credentials" },
+    {
+      name: "About",
+      href: "/about",
+      children: [
+        { name: "Our Story", href: "/about" },
+        { name: "Our Team", href: "/team" },
+        { name: "Credentials", href: "/credentials" },
+        { name: "Recognition", href: "/recognition" },
+      ],
+    },
   ],
   footer: {
     services: getServiceNavItems().filter((item) => item.href !== "/services"),
     company: [
-      { name: "About Us", href: "/about" },
+      { name: "Our Story", href: "/about" },
+      { name: "Our Team", href: "/team" },
       { name: "Credentials", href: "/credentials" },
-      { name: "Projects", href: "/projects" },
       { name: "Recognition", href: "/recognition" },
+      { name: "Projects", href: "/projects" },
       { name: "Products", href: "/products" },
       { name: "Green Initiative", href: "/green-initiative" },
       { name: "Contact", href: "/contact" },

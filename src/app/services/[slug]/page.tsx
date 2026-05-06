@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PageHeader, Section, ServiceCard, ImageGallery } from "@/components/ui";
+import { PageHeader, Section, ServiceCard, ImageGallery, StaffCard } from "@/components/ui";
 import { TestimonialBlock } from "@/components/ui/Testimonials";
 import { services, getServiceBySlug, roofingSubServices, roofingSystems, waterproofingApplications } from "@/data/services";
 import { company } from "@/data/company";
 import { projectCategories } from "@/data/projectCategories";
+import { getStaffForService } from "@/data/staff";
 
 // Get projects that match a service type
 function getProjectsForService(serviceId: string) {
@@ -75,6 +76,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const isRoofingService = service.id === "roofing";
   const isWaterproofingService = service.id === "waterproofing";
   const relatedProjects = getProjectsForService(service.id);
+  const teamMembers = getStaffForService(service.slug);
 
   return (
     <>
@@ -322,8 +324,58 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </Section>
       )}
 
+      {/* Meet the Team */}
+      {teamMembers.length > 0 && (
+        <Section background={relatedProjects.length > 0 ? undefined : "alt"}>
+          <div className="text-center mb-10 sm:mb-12">
+            <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 mb-2">
+              The People
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Meet the {service.title} Team
+            </h2>
+            <p className="mt-3 text-foreground-muted max-w-2xl mx-auto">
+              The estimators, project managers, and superintendents you&apos;ll work with on a {service.title.toLowerCase()} project.
+            </p>
+          </div>
+          <ul className="grid gap-x-6 gap-y-10 sm:gap-x-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {teamMembers.map((person) => (
+              <li key={person.id}>
+                <StaffCard person={person} />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 text-center">
+            <Link
+              href="/team"
+              className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500"
+            >
+              See the full team
+              <svg
+                className="ml-2 h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
+        </Section>
+      )}
+
       {/* Other Services */}
-      <Section background={relatedProjects.length > 0 ? undefined : "alt"}>
+      <Section
+        background={
+          (relatedProjects.length > 0) === (teamMembers.length > 0) ? "alt" : undefined
+        }
+      >
         <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
           Other Services
         </h2>
