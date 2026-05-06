@@ -85,13 +85,34 @@ These are content ideas that would create new pages or sections on rsitx.com and
 - [ ] **Case study pages** for each major project (separate from the project category pages). Schema markup for `Article` + photos + the property manager's quote.
 - [ ] **FAQ schema** on key pages — answers to "how often should I inspect my commercial roof in Houston" type questions, marked up so they can appear in Google's FAQ rich result.
 
-## Priority 6 — Technical / monitoring
+## Priority 6 — Submit to search engines (one-time)
 
-- [ ] Add the site to **[Google Search Console](https://search.google.com/search-console)** if not already done. Verify via DNS or the `/.well-known` route. Submit `https://rsitx.com/sitemap.xml`.
-- [ ] Set up **[Bing Webmaster Tools](https://www.bing.com/webmasters)** (free, easy, picks up real traffic).
-- [ ] Validate the structured data with [Google's Rich Results Test](https://search.google.com/test/rich-results) — check that the `RoofingContractor` schema on the homepage and `Service` schema on each `/services/[slug]` page parse cleanly.
-- [ ] Confirm the **Vercel Speed Insights** scores stay green (already wired up in `src/app/layout.tsx`). Aim for LCP < 2.5s on mobile.
-- [ ] Run a **monthly check** through [PageSpeed Insights](https://pagespeed.web.dev) on the home page and one service page.
+These are the "tell Google you exist" steps. None can be done from code; all need a human + a logged-in account.
+
+- [ ] **[Google Search Console](https://search.google.com/search-console)** — required. After verification, submit `https://rsitx.com/sitemap.xml`. Within ~48 hours you'll start seeing actual queries Houstonians type, your average ranking position, and any indexing issues.
+  - **Verification options:** DNS TXT record (recommended; survives hosting changes) → HTML file upload → HTML meta tag. If DNS access is awkward, the HTML file route is fine — Vercel serves any file dropped into `/public`.
+- [ ] **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — covers Bing + DuckDuckGo. Free, fast, picks up real traffic. Same sitemap submission.
+- [ ] **[Apple Maps Connect](https://mapsconnect.apple.com)** — listed in citations above; one-time submission, survives forever.
+
+## Priority 7 — Validators & one-shot audits
+
+Run each of these once after deploy, then periodically (e.g. quarterly or after major changes). All free, no account needed.
+
+- [ ] **[Google Rich Results Test](https://search.google.com/test/rich-results)** — paste `https://rsitx.com/` and `https://rsitx.com/services/roofing` separately. Confirms the `RoofingContractor` and `Service` JSON-LD parse cleanly.
+- [ ] **[Schema.org Markup Validator](https://validator.schema.org/)** — second opinion on the structured data. Stricter than Google's tool; sometimes catches things Google's parser is lenient about.
+- [ ] **[PageSpeed Insights](https://pagespeed.web.dev/)** — Google's hosted Lighthouse. Once you have real traffic, it surfaces field data (CrUX) — what real users actually experience, not synthetic. Run it on `/`, `/services/roofing`, and `/team`.
+- [ ] **[WebPageTest](https://www.webpagetest.org/)** — deeper performance breakdown than Lighthouse. Important: choose a Texas test location (Dallas) so the result reflects what Houston buyers see, not someone in Virginia.
+- [ ] **[WAVE](https://wave.webaim.org/)** — second-opinion accessibility scan (different rule set than axe-core, which we already run via `npm run audit:a11y`).
+- [ ] **[Mozilla Observatory](https://observatory.mozilla.org/)** — security headers grade (CSP, HSTS, etc.). Vercel handles much of this by default; the report tells you if there's a quick header to add.
+- [ ] **[SSL Labs SSL Test](https://www.ssllabs.com/ssltest/)** — TLS configuration grade. Vercel typically gets A/A+ out of the box; this confirms.
+- [ ] **[W3C HTML Validator](https://validator.w3.org/)** — pure HTML correctness check. Mostly catches stale markup, not SEO issues.
+
+## Priority 8 — Recurring monitoring
+
+- [ ] Confirm **Vercel Speed Insights** scores stay green (already wired up in `src/app/layout.tsx`). Aim for LCP < 2.5s on mobile.
+- [ ] **Monthly:** PageSpeed Insights on `/` and one service page. Watch for regressions.
+- [ ] **Weekly:** check Search Console for new errors / coverage issues.
+- [ ] **Quarterly:** re-run `npm run audit:lighthouse` against production (`npm run build && npm run start` first), and skim the report for new warnings.
 
 ## What's already done in code
 
